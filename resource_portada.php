@@ -1,4 +1,4 @@
-<html lang="ca">
+<html lang="es">
 
 <head>
     <title>Portada - TDIW</title>
@@ -6,12 +6,16 @@
 
 <body>
 
+    <!-- Navegador Página-->
     <div class="container">
-        Portada <br>
+        Portada <br> <!-- Logo -->
+        <nav>
+            <a href="#">Productos</a>
+            <a href='?action=llistar-categories'>Categories</a>
+            <a href="#">Cuenta</a>
+            <a href="#">Carrito</a>
+        </nav>
         
-        <a href='?action=llistar-categories'>Categories</a>
-
-        <?php require __DIR__ . '/controller/llistar_mensaje.php'; ?>
         
     </div>
 
