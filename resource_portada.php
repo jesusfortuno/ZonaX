@@ -11,7 +11,7 @@
         Portada <br> <!-- Logo -->
         <nav>
             <a href="?action=llistar-productes">Productos</a>
-            <a href='?action=llistar-categories'>Categories</a>
+            <a href="?action=llistar-categories">Categories</a>
             <a href="?action=registre">Cuenta</a>
             <a href="#">Carrito</a>
         </nav>
