@@ -7,17 +7,17 @@ $mensaje = ""; // Mensaje inicial vacío
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Obtener datos del formulario
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $nombre = $_POST['nombre'];
+    $contraseña = $_POST['contraseña'];
 
     // Conexión a la base de datos
     $conection = DB::getInstance();
 
     // Validar credenciales
-    if (verificarUsuario($conection, $username, $password)) {
+    if (verificarUsuario($conection, $nombre, $contraseña)) {
         // Credenciales correctas
-        $mensaje = "Inicio de sesión exitoso. Bienvenido, $username.";
-        $_SESSION['username'] = $username; // Guardar usuario en sesión
+        $mensaje = "Inicio de sesión exitoso. Bienvenido, $nombre.";
+        $_SESSION['nombre'] = $nombre; // Guardar usuario en sesión
     } else {
         // Credenciales incorrectas
         $mensaje = "Usuario o contraseña incorrectos. Intenta de nuevo.";
