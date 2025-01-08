@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -45,6 +44,10 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             width: 480px; /* Ancho fijo */
             min-height: 250px; /* Altura fija */
+            text-align: center;
+            display: flex; /* Añadido para usar flexbox */
+            justify-content: center; /* Centra horizontalmente */
+            align-items: center; /* Centra verticalmente */
         }
 
         section:hover {
@@ -66,46 +69,39 @@
 </head>
 <body>
     <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#productos">Productos</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#">Productos</a>
+        <a href='?action=llistar-categories'>Categories</a>
+        <a href="#">Cuenta</a>
+        <a href="#">Carrito</a>
     </nav>
 
     <div class="container">
         <section id="servicios">
             <h2>VIBRADORES MUJER</h2>
-            <p>Descubre todos nuestros servicios disponibles.</p>
         </section>
 
         <section id="productos">
             <h2>VIBRADORES HOMBRE</h2>
-            <p>Explora nuestro catálogo de productos.</p>
         </section>
 
         <section id="contacto">
             <h2>JUGUETES PARA PAREJAS</h2>
-            <p>¿Tienes preguntas? Contáctanos.</p>
         </section>
 
         <section id="contacto">
             <h2>LUBRICANTES</h2>
-            <p>¿Tienes preguntas? Contáctanos.</p>
         </section>
 
         <section id="contacto">
             <h2>PRESERVATIVOS</h2>
-            <p>¿Tienes preguntas? Contáctanos.</p>
         </section>
 
         <section id="contacto">
             <h2>LENCERIA</h2>
-            <p>¿Tienes preguntas? Contáctanos.</p>
         </section>
 
         <section id="contacto">
             <h2>BDSM</h2>
-            <p>¿Tienes preguntas? Contáctanos.</p>
         </section>
     </div>
 
