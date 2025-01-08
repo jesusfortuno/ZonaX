@@ -1,8 +1,8 @@
 <ul>
     <?php foreach ($categories as $categoria) : ?>
-        <li>
-            <h3><?php echo $categoria['nombre'] ?> </h3>
+        
+            <h3><a href="#"><?php echo $categoria['nombre_categoria'] ?> </a></h3>
             <p><?php echo htmlspecialchars($categoria['descripcion']); ?> </p>
-        </li>
+        
     <?php endforeach; ?>
 </ul>

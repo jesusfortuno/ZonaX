@@ -3,7 +3,7 @@
 function getProductosPorCategoria($conection, $categoria) {
     try {
         // Consulta parametrizada para evitar inyecciones SQL
-        $sql = "SELECT product_id, product_name FROM PRODUCTS WHERE category_id = :categoria";
+        $sql = "SELECT id_producto, nombre_producto FROM PRODUCTOS WHERE id_categoria = :categoria";
         $stmt = $conection->prepare($sql);
         $stmt->bindParam(':categoria', $categoria, PDO::PARAM_INT);
         $stmt->execute();

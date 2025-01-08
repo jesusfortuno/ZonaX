@@ -15,7 +15,7 @@ class DB {
 				"db_port" => "3306",
 				"db_user" => "root",
 				"db_pass" => "",
-				"db_name" => "examen"
+				"db_name" => "zonax"
             );
 
 			try {
