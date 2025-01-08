@@ -1,32 +1,22 @@
-<html lang="ca">
-
+<html lang="es">
 <head>
-    <title>Registre - TDIW</title>
+    <title>Registro - TDIW</title>
 </head>
-
 <body>
+    <form method="post" action="controller/almacenar_registro.php">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <br>
 
-    <?php require __DIR__ . '/controller/llistar_mensaje_registre.php'; ?>
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
 
+        <label for="contraseña">Contraseña:</label>
+        <input type="password" id="contraseña" name="contraseña" required>
+        <br>
 
-
-    <div class="container">
-        <form action="?action=registre-session" method="post">
-            <label for="username">Username</label><br>
-            <input type="text" name="username" placeholder="username" required pattern="[a-zA-Z0-9]{4,20}"><br>
-            <label for="password">Password</label><br>
-            <input type="text" name="password" placeholder="password" required pattern="[a-zA-Z0-9]{4,20}"><br>
-            <label for="first_name">First Name</label><br>
-            <input type="text" name="first_name" placeholder="first_name" required pattern="[a-zA-Z0-9]{4,20}"><br>
-            <label for="email">Email</label><br>
-            <input type="text" name="email" placeholder="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"><br>
-            <label for="postal">Postal</label><br>
-            <input type="text" name="postal" placeholder="postal" required pattern="[0-9]{5}"><br>
-            <input type="submit" value="Enviar">
-        </form>
-    </div>
+        <button type="submit">Registrar</button>
+    </form>
 </body>
-
-</body>
-
 </html>
