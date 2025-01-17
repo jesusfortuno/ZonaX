@@ -1,3 +1,10 @@
+<?php
+// Verificar si la sesión ya está activa
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -23,12 +30,28 @@
             background-color: #333;
             padding: 1rem;
             margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between; /* Alinea elementos a los extremos */
+            align-items: center;
+        }
+        nav .links {
+            display: flex;
+            gap: 1rem; /* Espacio entre los enlaces */
         }
         nav a {
             color: white;
             text-decoration: none;
             margin-right: 1rem;
             font-weight: 400;
+        }
+        nav .usuario {
+            color: white;
+            font-weight: 600;
+        }
+        nav span {
+            color: #ffcc00;
+            margin-left: 1rem;
+            font-weight: 600;
         }
 
         /* Estilos para los títulos de las secciones */
@@ -90,6 +113,9 @@
 </head>
 <body>
     <nav>
+        <?php if (isset($_SESSION['usuario'])): ?>
+            <span style="color: white; margin-right: 1rem;">Bienvenido, <?= htmlspecialchars($_SESSION['usuario']); ?></span>
+        <?php endif; ?>
         <a href="#">Productos</a>
         <a href='?action=llistar-categories'>Categories</a>
         <a href="?action=registre">Cuenta</a>
