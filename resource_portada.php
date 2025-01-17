@@ -3,6 +3,18 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+
+if (isset($_SESSION['rol'])) {
+    if ($_SESSION['rol'] === 'admin') {
+        include __DIR__ . '/views/header_admin.php'; // Cargar vista de administrador
+    } else {
+        include __DIR__ . '/views/header_usuario.php'; // Cargar vista de usuario
+    }
+} else {
+    // Si no hay sesión activa, redirigir al inicio de sesión o mostrar un mensaje
+    echo '<p>No tienes acceso. Por favor, <a href="?action=a">inicia sesión</a>.</p>';
+    exit();
+}
 ?>
 
 <html lang="es">
@@ -112,15 +124,6 @@ if (session_status() === PHP_SESSION_NONE) {
     </style>
 </head>
 <body>
-    <nav>
-        <?php if (isset($_SESSION['usuario'])): ?>
-            <span style="color: white; margin-right: 1rem;">Bienvenido, <?= htmlspecialchars($_SESSION['usuario']); ?></span>
-        <?php endif; ?>
-        <a href="#">Productos</a>
-        <a href='?action=llistar-categories'>Categories</a>
-        <a href="?action=registre">Cuenta</a>
-        <a href="#">Carrito</a>
-    </nav>
 
     <div class="container">
         <section id="vibradores-mujer">
