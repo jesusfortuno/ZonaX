@@ -5,166 +5,67 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 // Si la sesión está activa, muestra el header correspondiente
-if (isset($_SESSION['rol'])) {
+if (isset($_SESSION['usuario'])) {
     if ($_SESSION['rol'] === 'admin') {
-        include __DIR__ . '/views/header_admin.php'; // Cargar vista de administrador
+        include __DIR__ . '/views/header_admin.php';
     } else {
-        include __DIR__ . '/views/header_usuario.php'; // Cargar vista de usuario
+        include __DIR__ . '/views/header_usuario.php';
     }
+    
+    // Mostrar la página principal con las categorías
+    include __DIR__ . '/views/main_content.php';
 } else {
-    // Si no hay sesión activa, igual carga el header de usuario pero sin datos del usuario
-    include __DIR__ . '/views/header_usuario.php';
-}
+    // Si no hay sesión, mostrar el formulario de login
 ?>
-
-
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Sitio Web</title>
+    <title>Iniciar Sesión - ZonaX</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Estilos de navegación */
-        nav {
-            background-color: #333;
-            padding: 1rem;
-            margin-bottom: 2rem;
-            display: flex;
-            justify-content: space-between; /* Alinea elementos a los extremos */
-            align-items: center;
-        }
-        nav .links {
-            display: flex;
-            gap: 1rem; /* Espacio entre los enlaces */
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-right: 1rem;
-            font-weight: 400;
-        }
-        nav .usuario {
-            color: white;
-            font-weight: 600;
-        }
-        nav span {
-            color: #ffcc00;
-            margin-left: 1rem;
-            font-weight: 600;
-        }
-
-        /* Estilos para los títulos de las secciones */
-        section h2 {
-            font-weight: 600;
-            letter-spacing: 1px;
-            font-size: 1.2rem;
-        }
-
-        /* Contenedor para las secciones */
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.9rem;
-            justify-content: center;
-            padding: 0 1.9rem;
-            margin-bottom: 1rem;
-            flex: 1;
-        }
-
-        /* Mantiene el formato de rectángulos */
-        section {
-            background-color: #f5f5f5;
-            padding: 1.35rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            width: 445px;
-            min-height: 235px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 1.25rem;
-        }
-
-        section:hover {
-            transform: translateY(-5px);
-            transition: transform 0.3s ease;
-        }
-
-        /* Estilo para las imágenes dentro de las secciones */
-        section img {
-            max-width: 185px;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        /* Footer ajustado */
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 0.8rem;
-            text-align: center;
-            width: 100%;
-            margin-top: auto;
-        }
+        /* ... tus estilos existentes ... */
     </style>
 </head>
 <body>
-
     <div class="container">
-        <section id="vibradores-mujer">
-            <img src="img/vibrador-mujer.png" alt="Vibradores Mujer">
-            <h2>VIBRADORES MUJER</h2>
-        </section>
+        <div class="login-form">
+            <h1>Iniciar Sesión</h1>
+            
+            <?php if (isset($error)): ?>
+                <div class="error-message">
+                    <?= htmlspecialchars($error) ?>
+                </div>
+            <?php endif; ?>
 
-        <section id="vibradores-hombre">
-            <img src="img/vibrador-hombre.png" alt="Vibradores Hombre">
-            <h2>VIBRADORES HOMBRE</h2>
-        </section>
+            <form method="post" action="?action=inicio-session">
+                <div class="form-group">
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
 
-        <section id="juguetes-parejas">
-            <img src="img/jueguete-pareja.png" alt="Juguetes para Parejas">
-            <h2>JUGUETES PARA PAREJAS</h2>
-        </section>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
 
-        <section id="lubricantes">
-            <img src="img/lubricantes.png" alt="Lubricantes">
-            <h2>LUBRICANTES</h2>
-        </section>
+                <button type="submit">Iniciar Sesión</button>
 
-        <section id="preservativos">
-            <img src="img/preservativos.png" alt="Preservativos">
-            <h2>PRESERVATIVOS</h2>
-        </section>
-
-        <section id="lenceria">
-            <img src="img/lenceria.png" alt="Lencería">
-            <h2>LENCERIA</h2>
-        </section>
-
-        <section id="bdsm">
-            <img src="img/bdsm.png" alt="BDSM">
-            <h2>BDSM</h2>
-        </section>
+                <div class="links">
+                    <a href="?action=registre">¿No tienes cuenta? Regístrate</a>
+                    <br>
+                    <a href="?action=recuperar-password">¿Olvidaste tu contraseña?</a>
+                </div>
+            </form>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 Mi Sitio Web. Todos los derechos reservados.</p>
+        <p>&copy; 2024 ZonaX. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>
+<?php
+}
+?>

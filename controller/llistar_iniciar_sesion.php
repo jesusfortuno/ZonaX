@@ -1,29 +1,41 @@
 <?php
-
 require_once __DIR__ . '/../model/connectaDb.php';
-require_once __DIR__ . '/../model/iniciar_sesion.php';
-
-$mensaje = ""; // Mensaje inicial vacío
+require_once __DIR__ . '/../model/usuarios.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Obtener datos del formulario
-    $nombre = $_POST['nombre'];
-    $contraseña = $_POST['contraseña'];
-
-    // Conexión a la base de datos
-    $conection = DB::getInstance();
-
-    // Validar credenciales
-    if (verificarUsuario($conection, $nombre, $contraseña)) {
-        // Credenciales correctas
-        $mensaje = "Inicio de sesión exitoso. Bienvenido, $nombre.";
-        $_SESSION['nombre'] = $nombre; // Guardar usuario en sesión
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
+    
+    $connection = DB::getInstance();
+    $usuario = obtenerUsuarioPorEmail($connection, $email);
+    
+    // Debug
+    error_log("Intento de login - Email: " . $email);
+    if ($usuario) {
+        error_log("Usuario encontrado - Rol: " . $usuario['rol']);
+    }
+    
+    if ($usuario && password_verify($password, $usuario['password'])) {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        $_SESSION['usuario'] = $usuario['nombre'];
+        $_SESSION['rol'] = $usuario['rol'];
+        
+        error_log("Login exitoso - Usuario: " . $_SESSION['usuario'] . ", Rol: " . $_SESSION['rol']);
+        
+        if ($_SESSION['rol'] === 'admin') {
+            error_log("Redirigiendo a dashboard");
+            header('Location: ?action=dashboard');
+        } else {
+            error_log("Redirigiendo a portada");
+            header('Location: ?action=portada');
+        }
+        exit();
     } else {
-        // Credenciales incorrectas
-        $mensaje = "Usuario o contraseña incorrectos. Intenta de nuevo.";
+        error_log("Login fallido - Contraseña incorrecta o usuario no encontrado");
+        $error = "Credenciales incorrectas";
+        include __DIR__ . '/../resource_portada.php';
     }
 }
-
-// Incluir la vista para mostrar el mensaje
-include __DIR__ . '/../views/llistar_iniciar_sesion.php';
 ?>

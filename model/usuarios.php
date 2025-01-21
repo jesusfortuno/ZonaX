@@ -1,97 +1,109 @@
 <?php
 
-// Model: Funciones para usuarios
-function registrar($connection, $nombre, $contraseña, $email, $rol) {
+function registrar($connection, $nombre, $password, $email, $rol, $pregunta_seguridad, $respuesta_seguridad) {
     try {
-        if ($rol === 'admin') {
-            // Verificar si ya existe un administrador
-            $consulta = $connection->prepare("SELECT COUNT(*) FROM usuarios WHERE rol = 'admin';");
-            $consulta->execute();
-            if ($consulta->fetchColumn() > 0) {
-                return 'admin_existente'; // Ya hay un admin registrado
-            }
-        } else {
-            // Verificar si el nombre o email ya existen para usuarios normales
-            if (nombreExiste($connection, $nombre) || emailExiste($connection, $email)) {
-                return 'usuario_existente'; // Nombre o email ya en uso
-            }
-        }
+        // Debug: Imprimir los valores que se intentan insertar
+        error_log("Intentando insertar usuario con los siguientes datos:");
+        error_log("Nombre: " . $nombre);
+        error_log("Email: " . $email);
+        error_log("Rol: " . $rol);
 
-        // Registrar nuevo usuario
-        $consulta = $connection->prepare("INSERT INTO usuarios (nombre, contraseña, email, rol, fecha_registro) VALUES (?, ?, ?, ?, NOW());");
-        $consulta->bindParam(1, $nombre, PDO::PARAM_STR);
-        $consulta->bindParam(2, $contraseña, PDO::PARAM_STR);
-        $consulta->bindParam(3, $email, PDO::PARAM_STR);
-        $consulta->bindParam(4, $rol, PDO::PARAM_STR);
-        $consulta->execute();
-        return true;
+        $sql = "INSERT INTO usuarios (nombre, password, email, rol, pregunta_seguridad, respuesta_seguridad) 
+                VALUES (?, ?, ?, ?, ?, ?)";
+        
+        $consulta = $connection->prepare($sql);
+        
+        $resultado = $consulta->execute([
+            $nombre,
+            $password,
+            $email,
+            $rol,
+            $pregunta_seguridad,
+            $respuesta_seguridad
+        ]);
+
+        if ($resultado) {
+            error_log("Usuario registrado exitosamente con ID: " . $connection->lastInsertId());
+            return true;
+        } else {
+            error_log("Error en la inserción: " . print_r($consulta->errorInfo(), true));
+            return false;
+        }
     } catch (PDOException $e) {
-        error_log("Error: " . $e->getMessage());
+        error_log("Error PDO en registro: " . $e->getMessage());
+        throw $e;
     }
-    return false;
 }
 
-
-
-
-
-function nombreExiste($connection, $nombre) {
+function obtenerUsuarioPorEmail($connection, $email) {
     try {
-        $consulta = $connection->prepare("SELECT COUNT(*) FROM usuarios WHERE nombre = ?;");
-        $consulta->bindParam(1, $nombre, PDO::PARAM_STR);
-        $consulta->execute();
-        return $consulta->fetchColumn() > 0;
+        $consulta = $connection->prepare("SELECT id, nombre, email, password, rol, pregunta_seguridad, respuesta_seguridad FROM usuarios WHERE email = ?");
+        $consulta->execute([$email]);
+        $usuario = $consulta->fetch(PDO::FETCH_ASSOC);
+        
+        error_log("Búsqueda de usuario - Email: " . $email);
+        if ($usuario) {
+            error_log("Usuario encontrado - Nombre: " . $usuario['nombre'] . ", Rol: " . $usuario['rol']);
+        } else {
+            error_log("Usuario no encontrado");
+        }
+        
+        return $usuario;
     } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
+        error_log("Error en obtenerUsuarioPorEmail: " . $e->getMessage());
+        return false;
     }
-    return false;
+}
+
+function actualizarPassword($connection, $email, $nuevo_password) {
+    try {
+        $consulta = $connection->prepare("UPDATE usuarios SET password = ? WHERE email = ?");
+        return $consulta->execute([$nuevo_password, $email]);
+    } catch (PDOException $e) {
+        error_log("Error actualizando password: " . $e->getMessage());
+        return false;
+    }
 }
 
 function emailExiste($connection, $email) {
     try {
         $consulta = $connection->prepare("SELECT COUNT(*) FROM usuarios WHERE email = ?");
-        $consulta->bindParam(1, $email, PDO::PARAM_STR);
-        $consulta->execute();
+        $consulta->execute([$email]);
         return $consulta->fetchColumn() > 0;
     } catch (PDOException $e) {
-        error_log("Error: " . $e->getMessage());
+        error_log("Error verificando email: " . $e->getMessage());
+        return false;
     }
-    return false;
 }
 
-function obtenerUsuarioPorNombreOEmail($connection, $nombre, $email) {
+function contarUsuarios($connection) {
     try {
-        $consulta = $connection->prepare("SELECT nombre, email, rol FROM usuarios WHERE nombre = ? OR email = ?");
-        $consulta->bindParam(1, $nombre, PDO::PARAM_STR);
-        $consulta->bindParam(2, $email, PDO::PARAM_STR);
-        $consulta->execute();
-        return $consulta->fetch(PDO::FETCH_ASSOC); // Retorna el usuario encontrado o false si no existe
+        $consulta = $connection->query("SELECT COUNT(*) FROM usuarios");
+        return $consulta->fetchColumn();
     } catch (PDOException $e) {
-        error_log("Error: " . $e->getMessage());
+        error_log("Error contando usuarios: " . $e->getMessage());
+        return 0;
     }
-    return false;
 }
 
-
-function verificarCredenciales($connection, $email, $contraseña) {
+function contarProductos($connection) {
     try {
-        $consulta = $connection->prepare("SELECT nombre, contraseña, rol FROM usuarios WHERE email = ?");
-        $consulta->bindParam(1, $email, PDO::PARAM_STR);
-        $consulta->execute();
-        $usuario = $consulta->fetch(PDO::FETCH_ASSOC);
-
-        if ($usuario && password_verify($contraseña, $usuario['contraseña'])) {
-            return [
-                'nombre' => $usuario['nombre'],
-                'email' => $email,
-                'rol' => $usuario['rol'] // Incluye el rol en la respuesta
-            ];
-        }
+        $consulta = $connection->query("SELECT COUNT(*) FROM productos");
+        return $consulta->fetchColumn();
     } catch (PDOException $e) {
-        error_log("Error: " . $e->getMessage());
+        error_log("Error contando productos: " . $e->getMessage());
+        return 0;
     }
-    return false;
 }
 
+function contarCategorias($connection) {
+    try {
+        $consulta = $connection->query("SELECT COUNT(*) FROM categorias");
+        return $consulta->fetchColumn();
+    } catch (PDOException $e) {
+        error_log("Error contando categorías: " . $e->getMessage());
+        return 0;
+    }
+}
 
 ?>
