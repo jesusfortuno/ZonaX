@@ -1,3 +1,23 @@
+<?php
+// Verificar si la sesión ya está activa
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Si la sesión está activa, muestra el header correspondiente
+if (isset($_SESSION['rol'])) {
+    if ($_SESSION['rol'] === 'admin') {
+        include __DIR__ . '/views/header_admin.php'; // Cargar vista de administrador
+    } else {
+        include __DIR__ . '/views/header_usuario.php'; // Cargar vista de usuario
+    }
+} else {
+    // Si no hay sesión activa, igual carga el header de usuario pero sin datos del usuario
+    include __DIR__ . '/views/header_usuario.php';
+}
+?>
+
+
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -22,16 +42,36 @@
         nav {
             background-color: #333;
             padding: 1rem;
+<<<<<<< HEAD
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
+=======
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between; /* Alinea elementos a los extremos */
+            align-items: center;
+        }
+        nav .links {
+            display: flex;
+            gap: 1rem; /* Espacio entre los enlaces */
+>>>>>>> 55f67b3fe393b4b4cc2c30c9fd9d7d9835256cbe
         }
         nav a {
             color: white;
             text-decoration: none;
             margin-right: 1rem;
             font-weight: 400;
+        }
+        nav .usuario {
+            color: white;
+            font-weight: 600;
+        }
+        nav span {
+            color: #ffcc00;
+            margin-left: 1rem;
+            font-weight: 600;
         }
 
         /* Estilos para los títulos de las secciones */
@@ -93,12 +133,6 @@
     </style>
 </head>
 <body>
-    <nav>
-        <a href="#">Productos</a>
-        <a href='?action=llistar-categories'>Categories</a>
-        <a href="?action=registre">Cuenta</a>
-        <a href="#">Carrito</a>
-    </nav>
 
     <div class="container">
         <section id="vibradores-mujer">

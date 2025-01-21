@@ -1,22 +1,34 @@
-<?php
-    echo "<h1>Registro</h1>";
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - TDIW</title>
+</head>
+<body>
+    <h1>Bienvenido a la página de registro</h1>
+    
+    <form method="post" action="?action=registre-session">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <span style="color: red;"><?= $errors['nombre'] ?? '' ?></span>
+        <br>
 
-    // Mostrar errores si existen
-    if (!empty($errors)) {
-        echo "<ul style='color: red;'>";
-        foreach ($errors as $error) {
-            echo "<li>" . htmlspecialchars($error) . "</li>";
-        }
-        echo "</ul>";
-    } elseif (!empty($mensaje)) {
-        // Mostrar mensaje de éxito o error
-        echo "<p style='color: green;'>" . htmlspecialchars($mensaje) . "</p>";
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required>
+        <span style="color: red;"><?= $errors['email'] ?? '' ?></span>
+        <br>
 
-        if (!empty($usuario)) {
-            echo "<p>ID Usuario: " . htmlspecialchars($usuario['id_usuario']) . "</p>";
-            echo "<p>Nombre: " . htmlspecialchars($usuario['nombre']) . "</p>";
-            echo "<p>Email: " . htmlspecialchars($usuario['email']) . "</p>";
-            echo "<p>Fecha de registro: " . htmlspecialchars($usuario['fecha_registro']) . "</p>";
-        }
-    }
-?>
+        <label for="contraseña">Contraseña:</label>
+        <input type="password" id="contraseña" name="contraseña" required>
+        <span style="color: red;"><?= $errors['contraseña'] ?? '' ?></span>
+        <br>
+
+        <button type="submit">Registrar</button>
+        <?php if (isset($errors['general'])): ?>
+            <p style="color: red;"><?= $errors['general']; ?></p>
+        <?php endif; ?>
+    </form>
+
+</body>
+</html>
