@@ -18,7 +18,8 @@ switch ($action) {
     case 'llistar-productes':
         include __DIR__.'/resource_productos.php';
         break;
-
+    
+    // Controller
     case 'registre-session':
         include __DIR__.'/controller/almacenar_registro.php';
         break;

@@ -1,6 +1,6 @@
 <?php
 
-function getCategories($conection) {
+/*function getCategories($conection) {
 
     try {
         $consulta_graus = $conection->prepare("SELECT id_categoria, nombre_categoria, descripcion FROM CATEGORIA");
@@ -10,6 +10,6 @@ function getCategories($conection) {
         echo "Error: " . $e->getMessage();
     }
     return $resultat_graus;
-}
+}*/
 
 ?>

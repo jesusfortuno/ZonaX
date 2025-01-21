@@ -22,7 +22,10 @@
         nav {
             background-color: #333;
             padding: 1rem;
-            margin-bottom: 2rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
         }
         nav a {
             color: white;
@@ -47,6 +50,7 @@
             padding: 0 1.9rem;
             margin-bottom: 1rem;
             flex: 1;
+            margin-top: 4rem;
         }
 
         /* Mantiene el formato de rectángulos */
