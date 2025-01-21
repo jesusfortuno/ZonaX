@@ -4,6 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+// Si la sesión está activa, muestra el header correspondiente
 if (isset($_SESSION['rol'])) {
     if ($_SESSION['rol'] === 'admin') {
         include __DIR__ . '/views/header_admin.php'; // Cargar vista de administrador
@@ -11,11 +12,11 @@ if (isset($_SESSION['rol'])) {
         include __DIR__ . '/views/header_usuario.php'; // Cargar vista de usuario
     }
 } else {
-    // Si no hay sesión activa, redirigir al inicio de sesión o mostrar un mensaje
-    echo '<p>No tienes acceso. Por favor, <a href="?action=a">inicia sesión</a>.</p>';
-    exit();
+    // Si no hay sesión activa, igual carga el header de usuario pero sin datos del usuario
+    include __DIR__ . '/views/header_usuario.php';
 }
 ?>
+
 
 <html lang="es">
 <head>
