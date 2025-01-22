@@ -1,15 +1,14 @@
 <?php
 
-function getProductosPorCategoria($conection, $categoria) {
+function getProductos($conection) {
     try {
         // Consulta parametrizada para evitar inyecciones SQL
-        $sql = "SELECT id_producto, nombre_producto FROM PRODUCTOS WHERE id_categoria = :categoria";
+        $sql = "SELECT nombre_producto, descripción, coste FROM PRODUCTOS";
         $stmt = $conection->prepare($sql);
-        $stmt->bindParam(':categoria', $categoria, PDO::PARAM_INT);
         $stmt->execute();
         $resultat = $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
+        error_log("Error: " . $e->getMessage());
         $resultat = [];
     }
 

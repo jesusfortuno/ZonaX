@@ -41,7 +41,6 @@ switch ($action) {
         break;
 
     case 'salir':
-        session_start();
         session_destroy();
         header('Location: ?action=portada');
         exit();
