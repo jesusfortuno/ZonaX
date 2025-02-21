@@ -1,39 +1,104 @@
+<style>
+    .container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 20px;
+        text-align: center;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .category {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #f8f8f8;
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        text-decoration: none;
+        height: 250px;
+    }
+
+    .category:hover {
+        transform: scale(1.05);
+    }
+
+    .category img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    .category h2 {
+        font-size: 16px;
+        margin: 0;
+        color: #333;
+    }
+
+    /* Imagen final más grande */
+    .final-category {
+        grid-column: span 2;
+        height: 300px;
+    }
+
+    .final-category img {
+        width: 200px;
+        height: 200px;
+    }
+
+    footer {
+        text-align: center;
+        margin-top: 20px;
+        padding: 10px 0;
+        background-color: #222;
+        color: #fff;
+    }
+</style>
+
 <div class="container">
-    <section id="vibradores-mujer">
+    <!-- Primera fila -->
+    <a href="vibradores-mujer.php" class="category">
         <img src="img/vibrador-mujer.png" alt="Vibradores Mujer">
         <h2>VIBRADORES MUJER</h2>
-    </section>
+    </a>
 
-    <section id="vibradores-hombre">
+    <a href="vibradores-hombre.php" class="category">
         <img src="img/vibrador-hombre.png" alt="Vibradores Hombre">
         <h2>VIBRADORES HOMBRE</h2>
-    </section>
+    </a>
 
-    <section id="juguetes-parejas">
+    <!-- Segunda fila -->
+    <a href="juguetes-parejas.php" class="category">
         <img src="img/jueguete-pareja.png" alt="Juguetes para Parejas">
         <h2>JUGUETES PARA PAREJAS</h2>
-    </section>
+    </a>
 
-    <section id="lubricantes">
+    <a href="lubricantes.php" class="category">
         <img src="img/lubricantes.png" alt="Lubricantes">
         <h2>LUBRICANTES</h2>
-    </section>
+    </a>
 
-    <section id="preservativos">
-        <img src="img/preservativos.png" alt="Preservativos">
-        <h2>PRESERVATIVOS</h2>
-    </section>
-
-    <section id="lenceria">
+    <!-- Tercera fila -->
+    <a href="lenceria.php" class="category">
         <img src="img/lenceria.png" alt="Lencería">
         <h2>LENCERIA</h2>
-    </section>
+    </a>
 
-    <section id="bdsm">
+    <a href="bdsm.php" class="category">
         <img src="img/bdsm.png" alt="BDSM">
         <h2>BDSM</h2>
-    </section>
-    
+    </a>
+
+    <!-- Imagen final más grande -->
+    <a href="preservativos.php" class="category final-category">
+        <img src="img/preservativos.png" alt="Preservativos">
+        <h2>PRESERVATIVOS</h2>
+    </a>
 </div>
 
 <footer>
