@@ -38,6 +38,7 @@
 <body>
     <nav>
         <div class="links">
+            <a href="?action=portada">Portada</a>
             <?php if (isset($_SESSION['usuario'])): ?>
                 <span class="usuario">Administrador: <?= htmlspecialchars($_SESSION['usuario']); ?></span>
             <?php endif; ?>

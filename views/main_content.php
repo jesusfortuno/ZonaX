@@ -62,40 +62,40 @@
 
 <div class="container">
     <!-- Primera fila -->
-    <a href="vibradores-mujer.php" class="category">
+    <a href="index.php?action=categoria&categoria=1" class="category">
         <img src="img/vibrador-mujer.png" alt="Vibradores Mujer">
         <h2>VIBRADORES MUJER</h2>
     </a>
 
-    <a href="vibradores-hombre.php" class="category">
+    <a href="index.php?action=categoria&categoria=2" class="category">
         <img src="img/vibrador-hombre.png" alt="Vibradores Hombre">
         <h2>VIBRADORES HOMBRE</h2>
     </a>
 
     <!-- Segunda fila -->
-    <a href="juguetes-parejas.php" class="category">
+    <a href="index.php?action=categoria&categoria=3" class="category">
         <img src="img/jueguete-pareja.png" alt="Juguetes para Parejas">
         <h2>JUGUETES PARA PAREJAS</h2>
     </a>
 
-    <a href="lubricantes.php" class="category">
+    <a href="index.php?action=categoria&categoria=4" class="category">
         <img src="img/lubricantes.png" alt="Lubricantes">
         <h2>LUBRICANTES</h2>
     </a>
 
     <!-- Tercera fila -->
-    <a href="lenceria.php" class="category">
+    <a href="index.php?action=categoria&categoria=6" class="category">
         <img src="img/lenceria.png" alt="Lencería">
         <h2>LENCERIA</h2>
     </a>
 
-    <a href="bdsm.php" class="category">
+    <a href="index.php?action=categoria&categoria=7" class="category">
         <img src="img/bdsm.png" alt="BDSM">
         <h2>BDSM</h2>
     </a>
 
     <!-- Imagen final más grande -->
-    <a href="preservativos.php" class="category final-category">
+    <a href="index.php?action=categoria&categoria=5" class="category final-category">
         <img src="img/preservativos.png" alt="Preservativos">
         <h2>PRESERVATIVOS</h2>
     </a>

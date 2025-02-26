@@ -5,7 +5,6 @@ session_start();
 $action = $_GET['action'] ?? null;
 
 switch ($action) {
-
     // Resources
     case 'llistar-categories':
         include __DIR__.'/resource_llistar_categories.php';
@@ -18,7 +17,12 @@ switch ($action) {
     case 'llistar-productes':
         include __DIR__.'/resource_productos.php';
         break;
-    
+
+    // New case for category handling
+    case 'categoria':
+        include __DIR__.'/categoria.php'; // Redirige a la lógica del controlador
+        break;
+
     // Controller
     case 'registre-session':
         include __DIR__.'/controller/almacenar_registro.php';
@@ -71,10 +75,10 @@ switch ($action) {
         error_log("Acceso permitido al dashboard - Usuario: " . $_SESSION['usuario']);
         include __DIR__.'/controller/dashboard.php';
         break;
+
     // Default
     default:
         include __DIR__.'/resource_portada.php';
         break;
 }
-
 ?>
