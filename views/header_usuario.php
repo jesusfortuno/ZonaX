@@ -43,7 +43,7 @@
                 <span class="usuario">Bienvenido, <?= htmlspecialchars($_SESSION['usuario']); ?></span>
             <?php endif; ?>
             <a href="?action=llistar-productes">Productos</a>
-            <a href="?action=llistar-categories">Categorías</a>
+            <a href="?action=portada">Categorías</a>
             <a href="?action=perfil">Mi Cuenta</a>
         </div>
         <div>

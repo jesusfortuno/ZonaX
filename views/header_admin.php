@@ -44,7 +44,7 @@
             <?php endif; ?>
             <a href="?action=dashboard">Dashboard</a>
             <a href="?action=gestionar-productos">Gestionar Productos</a>
-            <a href="?action=llistar-categories">Categorías</a>
+            <a href="?action=portada">Categorías</a>
         </div>
         <div>
             <a href="?action=salir">Cerrar Sesión</a>
