@@ -63,7 +63,11 @@ if (isset($_SESSION['usuario'])) {
     <?php if (!empty($productos)): ?>
         <?php foreach ($productos as $producto): ?>
             <div class="producto-card">
-                <img src="img/<?php echo $producto['id_categoria']; ?>.png" alt="<?php echo htmlspecialchars($producto['nombre_producto']); ?>">
+                <?php if (!empty($producto['imagen'])): ?>
+                    <img src="<?php echo htmlspecialchars($producto['imagen']); ?>" alt="<?php echo htmlspecialchars($producto['nombre_producto']); ?>">
+                <?php else: ?>
+                    <img src="img/default.jpg" alt="Imagen no disponible">
+                <?php endif; ?>
                 <h2><?php echo htmlspecialchars($producto['nombre_producto']); ?></h2>
                 <p><?php echo htmlspecialchars($producto['descripción']); ?></p>
                 <p>Precio: <?php echo htmlspecialchars($producto['coste']); ?> €</p>

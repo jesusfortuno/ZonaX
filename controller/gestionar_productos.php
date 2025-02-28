@@ -13,9 +13,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $descripcion = trim($_POST['descripcion'] ?? '');
             $coste = $_POST['coste'] ?? '';
             $id_categoria = $_POST['id_categoria'] ?? '';
+            $imagen = $_FILES['imagen'] ?? null;
+
+            if ($imagen && $imagen['error'] === UPLOAD_ERR_OK) {
+                $ruta_imagen = 'img/' . basename($imagen['name']);
+                move_uploaded_file($imagen['tmp_name'], $ruta_imagen);
+            } else {
+                $ruta_imagen = null;
+            }
 
             if (!empty($nombre_producto) && !empty($descripcion) && is_numeric($coste) && $coste > 0 && !empty($id_categoria)) {
-                addProducto($conexion, $nombre_producto, $descripcion, $coste, $id_categoria);
+                addProducto($conexion, $nombre_producto, $descripcion, $coste, $id_categoria, $ruta_imagen);
                 header('Location: ?action=listar_productos');
                 exit();
             } else {
@@ -29,9 +37,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $descripcion = trim($_POST['descripcion'] ?? '');
             $coste = $_POST['coste'] ?? '';
             $id_categoria = $_POST['id_categoria'] ?? '';
+            $imagen = $_FILES['imagen'] ?? null;
+
+            // Obtener la imagen existente de la base de datos
+            $producto_existente = getProductoById($conexion, $id_producto); // Asegúrate de tener esta función
+            $ruta_imagen = $producto_existente['imagen']; // Mantener la imagen existente por defecto
+
+            if ($imagen && $imagen['error'] === UPLOAD_ERR_OK) {
+                $ruta_imagen = 'img/' . basename($imagen['name']);
+                move_uploaded_file($imagen['tmp_name'], $ruta_imagen);
+            }
 
             if (!empty($id_producto) && !empty($nombre_producto) && !empty($descripcion) && is_numeric($coste) && $coste > 0 && !empty($id_categoria)) {
-                editProducto($conexion, $id_producto, $nombre_producto, $descripcion, $coste, $id_categoria);
+                editProducto($conexion, $id_producto, $nombre_producto, $descripcion, $coste, $id_categoria, $ruta_imagen);
                 header('Location: ?action=listar_productos');
                 exit();
             } else {

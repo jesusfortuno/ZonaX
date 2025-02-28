@@ -83,7 +83,7 @@ if (isset($_SESSION['usuario'])) {
     <?php endif; ?>
 
     <h3>Agregar Producto</h3>
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         <input type="hidden" name="accion" value="add">
         <input type="text" name="nombre_producto" placeholder="Nombre" required>
         <textarea name="descripcion" placeholder="Descripción" required></textarea>
@@ -99,6 +99,7 @@ if (isset($_SESSION['usuario'])) {
             <option value="6">lenceria</option>
             <option value="7">BDSM</option>
         </select>
+        <input type="file" name="imagen" accept="image/*" required>
         <button type="submit">Agregar</button>
     </form>
 
@@ -126,7 +127,7 @@ if (isset($_SESSION['usuario'])) {
                         <button type="submit" onclick="return confirm('¿Seguro que deseas eliminar este producto?')">Eliminar</button>
                     </form>
 
-                    <form method="POST" style="display:inline;">
+                    <form method="POST" style="display:inline;" enctype="multipart/form-data">
                         <input type="hidden" name="accion" value="edit">
                         <input type="hidden" name="id_producto" value="<?= $producto['id_producto'] ?>">
                         <input type="text" name="nombre_producto" value="<?= htmlspecialchars($producto['nombre_producto']) ?>" required>
@@ -141,6 +142,7 @@ if (isset($_SESSION['usuario'])) {
                             <option value="6" <?= $producto['id_categoria'] == 6 ? 'selected' : '' ?>>lenceria</option>
                             <option value="7" <?= $producto['id_categoria'] == 7 ? 'selected' : '' ?>>BDSM</option>
                         </select>
+                        <input type="file" name="imagen" accept="image/*">
                         <button type="submit">Actualizar</button>
                     </form>
                 </td>
