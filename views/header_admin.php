@@ -47,6 +47,7 @@
             <a href="?action=portada">Categorías</a>
         </div>
         <div>
+            <a href="?action=carrito">Carrito</a>
             <a href="?action=salir">Cerrar Sesión</a>
         </div>
     </nav>

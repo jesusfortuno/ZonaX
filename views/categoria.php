@@ -63,14 +63,16 @@ if (isset($_SESSION['usuario'])) {
     <?php if (!empty($productos)): ?>
         <?php foreach ($productos as $producto): ?>
             <div class="producto-card">
-                <?php if (!empty($producto['imagen'])): ?>
-                    <img src="<?php echo htmlspecialchars($producto['imagen']); ?>" alt="<?php echo htmlspecialchars($producto['nombre_producto']); ?>">
-                <?php else: ?>
-                    <img src="img/default.jpg" alt="Imagen no disponible">
-                <?php endif; ?>
-                <h2><?php echo htmlspecialchars($producto['nombre_producto']); ?></h2>
-                <p><?php echo htmlspecialchars($producto['descripción']); ?></p>
-                <p>Precio: <?php echo htmlspecialchars($producto['coste']); ?> €</p>
+                <a href="?action=producto&id=<?php echo htmlspecialchars($producto['id_producto']); ?>">
+                    <?php if (!empty($producto['imagen'])): ?>
+                        <img src="<?php echo htmlspecialchars($producto['imagen']); ?>" alt="<?php echo htmlspecialchars($producto['nombre_producto']); ?>">
+                    <?php else: ?>
+                        <img src="img/default.jpg" alt="Imagen no disponible">
+                    <?php endif; ?>
+                    <h2><?php echo htmlspecialchars($producto['nombre_producto']); ?></h2>
+                    <p><?php echo htmlspecialchars($producto['descripción']); ?></p>
+                    <p>Precio: <?php echo htmlspecialchars($producto['coste']); ?> €</p>
+                </a>
             </div>
         <?php endforeach; ?>
     <?php else: ?>

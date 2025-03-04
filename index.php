@@ -17,6 +17,10 @@ switch ($action) {
     case 'llistar-productes':
         include __DIR__.'/resource_productos.php';
         break;
+    // Añadir en index.php dentro del switch
+    case 'producto':
+        include __DIR__.'/resource_producto.php';
+        break;
 
     // New case for category handling
     case 'categoria':
