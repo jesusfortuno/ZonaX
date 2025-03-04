@@ -22,9 +22,17 @@ switch ($action) {
         include __DIR__.'/resource_producto.php';
         break;
 
+    // Añadir en index.php dentro del switch
+    case 'carrito':
+        include __DIR__.'/resource_carrito.php';
+        break;
     // New case for category handling
     case 'categoria':
         include __DIR__.'/categoria.php'; // Redirige a la lógica del controlador
+        break;
+        
+    case 'portada':
+        include __DIR__.'/resource_portada.php';
         break;
 
     // Controller
@@ -44,9 +52,7 @@ switch ($action) {
         include __DIR__.'/controller/recuperar_password.php';
         break;
 
-    case 'portada':
-        include __DIR__.'/resource_portada.php';
-        break;
+
 
     case 'salir':
         session_destroy();

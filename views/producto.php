@@ -139,9 +139,17 @@ if (isset($_SESSION['usuario'])) {
             <p class="producto-precio"><?php echo htmlspecialchars($producto['coste']); ?> €</p>
             
             <!-- Botón para añadir al carrito -->
-            <button class="btn-carrito">
-                <i class="fas fa-shopping-cart"></i> Añadir al carrito
-            </button>
+            <!-- En views/producto.php, reemplazar el botón actual por un formulario -->
+            <form action="index.php?action=carrito&op=add" method="post">
+                <input type="hidden" name="id_producto" value="<?php echo htmlspecialchars($producto['id_producto']); ?>">
+                <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($producto['nombre_producto']); ?>">
+                <input type="hidden" name="precio" value="<?php echo htmlspecialchars($producto['coste']); ?>">
+                <input type="hidden" name="imagen" value="<?php echo htmlspecialchars($producto['imagen']); ?>">
+                <input type="number" name="cantidad" value="1" min="1" max="10" style="width: 60px; padding: 8px; margin-right: 10px;">
+                <button type="submit" class="btn-carrito">
+                    <i class="fas fa-shopping-cart"></i> Añadir al carrito
+                </button>
+            </form>
             
             <div>
                 <a href="javascript:history.back()" class="btn-volver">
