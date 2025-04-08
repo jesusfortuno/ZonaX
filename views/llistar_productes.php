@@ -21,7 +21,10 @@ if (isset($_SESSION['usuario'])) {
                     <?php endif; ?>
                     <div class="producto-info">
                         <h3 class="producto-titulo"><?php echo htmlspecialchars($producte['nombre_producto']); ?></h3>
-                        <p class="descripcion"><?php echo htmlspecialchars($producte['descripción']); ?></p>
+                        <div class="descripcion-container">
+                            <p class="descripcion"><?php echo htmlspecialchars($producte['descripción']); ?></p>
+                            <a href="index.php?action=detalle-producto&id=<?php echo $producte['id']; ?>" class="ver-mas">Ver más <i class="fas fa-arrow-right"></i></a>
+                        </div>
                         <div class="precio-container">
                             <p class="precio"><?php echo number_format($producte['coste'], 2); ?>€</p>
                         </div>
@@ -80,6 +83,9 @@ if (isset($_SESSION['usuario'])) {
     overflow: hidden;
     transition: all 0.4s ease;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .producto-card:hover {
@@ -107,6 +113,9 @@ if (isset($_SESSION['usuario'])) {
 .producto-info {
     padding: 2rem;
     background: linear-gradient(135deg, var(--color-blanco) 0%, var(--color-rosa-claro) 100%);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .producto-titulo {
@@ -117,11 +126,47 @@ if (isset($_SESSION['usuario'])) {
     line-height: 1.2;
 }
 
+.descripcion-container {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
 .descripcion {
     color: #555;
     font-size: 1.1rem;
     line-height: 1.6;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-height: 3.5em; /* 2 líneas x 1.6 line-height + un poco extra */
+}
+
+.ver-mas {
+    color: var(--color-rosa);
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 2px 5px;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.ver-mas:hover {
+    color: var(--color-naranja);
+    transform: translateX(5px);
+}
+
+.ver-mas i {
+    font-size: 0.8rem;
 }
 
 .precio-container {
@@ -158,6 +203,7 @@ if (isset($_SESSION['usuario'])) {
     gap: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    margin-top: auto;
 }
 
 .add-to-cart:hover {
@@ -226,6 +272,19 @@ if (isset($_SESSION['usuario'])) {
         font-size: 1.5rem;
     }
 }
+
+footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    background-color: #ff6b6b;
+    color: white;
+    font-size: 0.9rem;
+    margin-top: 3rem;
+}
+
+footer p {
+    margin: 0;
+}
 </style>
 
 <!-- Añadir Font Awesome para los iconos -->
@@ -233,28 +292,48 @@ if (isset($_SESSION['usuario'])) {
 
 <?php if (isset($_SESSION['usuario'])) : ?>
 <script>
-document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', function() {
-        const productId = this.dataset.productId;
-        
-        // Cambiar el texto y estilo del botón al hacer clic
-        this.innerHTML = '<i class="fas fa-check"></i> Producto añadido';
-        this.style.background = 'linear-gradient(45deg, var(--color-rosa), var(--color-naranja))';
-        
-        // Deshabilitar el botón temporalmente
-        this.disabled = true;
-        
-        // Después de 2 segundos, restaurar el botón
-        setTimeout(() => {
-            this.innerHTML = '<i class="fas fa-cart-plus"></i> Comprar';
-            this.style.background = 'linear-gradient(45deg, var(--color-rosa), var(--color-naranja))';
-            this.disabled = false;
-        }, 2000);
-        
-        // Aquí puedes añadir la lógica para agregar al carrito
-        alert('¡Producto añadido a tu carrito de compra!');
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function() {
+            const productId = this.dataset.productId;
+            
+            // Cambiar el texto y estilo del botón al hacer clic
+            this.innerHTML = '<i class="fas fa-check"></i> Producto añadido';
+            this.style.background = 'linear-gradient(45deg, #4CAF50, #8BC34A)';
+            
+            // Deshabilitar el botón temporalmente
+            this.disabled = true;
+            
+            // Después de 2 segundos, restaurar el botón
+            setTimeout(() => {
+                this.innerHTML = '<i class="fas fa-cart-plus"></i> Comprar';
+                this.style.background = 'linear-gradient(45deg, var(--color-rosa), var(--color-naranja))';
+                this.disabled = false;
+            }, 2000);
+            
+            // Aquí puedes añadir la lógica para agregar al carrito usando AJAX
+            // Por ejemplo:
+            fetch('index.php?action=agregar-al-carrito', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'producto_id=' + productId
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Actualizar contador del carrito si es necesario
+                    if (document.querySelector('.cart-counter')) {
+                        document.querySelector('.cart-counter').textContent = data.total_items;
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
     });
 });
 </script>
-<?php endif; 
-?>
+<?php endif; ?>

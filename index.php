@@ -24,7 +24,7 @@ switch ($action) {
 
     // Añadir en index.php dentro del switch
     case 'carrito':
-        include __DIR__.'/resource_carrito.php';
+        include __DIR__.'/views/carrito.php';
         break;
     // New case for category handling
     case 'categoria':
