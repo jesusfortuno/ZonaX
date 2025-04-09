@@ -4,9 +4,11 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start(); // Inicia la sesión solo si no está activa
 }
 
-// Aquí no es necesario incluir connectaDb.php ni categoria_controller.php, ya que se hace en el controlador
-
-// Aquí puedes incluir el diseño HTML común para todas las categorías
+// Configuración de errores
+error_reporting(E_ALL);
+ini_set('display_errors', 0); // No mostrar errores en pantalla
+ini_set('log_errors', 1);
+ini_set('error_log', __DIR__ . '/../error.log');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -248,10 +250,10 @@ if (session_status() === PHP_SESSION_NONE) {
 
 <?php
 if (isset($_SESSION['usuario'])) {
-    if ($_SESSION['rol'] === 'admin') {
-        include __DIR__ . '/header_admin.php';
+    if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin') {
+        include_once __DIR__ . '/header_admin.php';
     } else {
-        include __DIR__ . '/header_usuario.php';
+        include_once __DIR__ . '/header_usuario.php';
     }
 }
 ?>
@@ -275,7 +277,7 @@ if (isset($_SESSION['usuario'])) {
                         <div class="precio-container">
                             <p class="precio"><?php echo number_format($producto['coste'], 2); ?>€</p>
                         </div>
-                        <a href="?action=producto&id=<?php echo htmlspecialchars($producto['id_producto']); ?>" class="ver-detalles">
+                        <a href="index.php?action=producto&id=<?php echo $producto['id']; ?>" class="ver-detalles">
                             <i class="fas fa-eye"></i> Ver detalles
                         </a>
                     </div>

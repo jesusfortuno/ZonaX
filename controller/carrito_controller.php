@@ -7,21 +7,27 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+// Configuración de errores
+error_reporting(E_ALL);
+ini_set('display_errors', 0); // No mostrar errores en pantalla
+ini_set('log_errors', 1);
+ini_set('error_log', __DIR__ . '/../error.log');
+
 $conection = DB::getInstance();
 $error = '';
 $mensaje = '';
 
-// Función para obtener el carrito actual desde las cookies
+// Función para obtener el carrito actual desde la sesión
 function getCarrito() {
-    if (isset($_COOKIE['carrito'])) {
-        return json_decode($_COOKIE['carrito'], true);
+    if (!isset($_SESSION['carrito'])) {
+        $_SESSION['carrito'] = [];
     }
-    return [];
+    return $_SESSION['carrito'];
 }
 
-// Función para guardar el carrito en las cookies
+// Función para guardar el carrito en la sesión
 function guardarCarrito($carrito) {
-    setcookie('carrito', json_encode($carrito), time() + (86400 * 30), "/"); // Cookie válida por 30 días
+    $_SESSION['carrito'] = $carrito;
 }
 
 // Obtener la operación a realizar
@@ -31,11 +37,13 @@ switch ($operacion) {
     case 'add':
         // Añadir producto al carrito
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $id_producto = $_POST['id_producto'] ?? '';
-            $nombre = $_POST['nombre'] ?? '';
-            $precio = $_POST['precio'] ?? 0;
-            $cantidad = $_POST['cantidad'] ?? 1;
-            $imagen = $_POST['imagen'] ?? '';
+            $id_producto = isset($_POST['id_producto']) ? $_POST['id_producto'] : '';
+            $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : '';
+            $precio = isset($_POST['precio']) ? (float)$_POST['precio'] : 0;
+            $cantidad = isset($_POST['cantidad']) ? (int)$_POST['cantidad'] : 1;
+            $imagen = isset($_POST['imagen']) ? $_POST['imagen'] : '';
+            
+            error_log("Añadiendo producto al carrito: ID=$id_producto, Nombre=$nombre, Precio=$precio, Cantidad=$cantidad");
             
             if (!empty($id_producto)) {
                 $carrito = getCarrito();
@@ -44,6 +52,7 @@ switch ($operacion) {
                 if (isset($carrito[$id_producto])) {
                     // Actualizar cantidad
                     $carrito[$id_producto]['cantidad'] += $cantidad;
+                    error_log("Producto ya en carrito, actualizando cantidad a: " . $carrito[$id_producto]['cantidad']);
                 } else {
                     // Añadir nuevo producto
                     $carrito[$id_producto] = [
@@ -53,10 +62,48 @@ switch ($operacion) {
                         'cantidad' => $cantidad,
                         'imagen' => $imagen
                     ];
+                    error_log("Nuevo producto añadido al carrito");
                 }
                 
                 guardarCarrito($carrito);
                 $mensaje = "Producto añadido al carrito correctamente.";
+                
+                // Redireccionar a la página del carrito
+                header("Location: index.php?action=carrito&op=ver");
+                exit;
+            } else {
+                $error = "Error: No se pudo añadir el producto al carrito.";
+                error_log("Error: ID de producto vacío");
+            }
+        } elseif (isset($_GET['id'])) {
+            // Añadir producto desde un enlace (GET)
+            $id_producto = $_GET['id'];
+            
+            // Obtener información del producto desde la base de datos
+            $producto = getProductoById($conection, $id_producto);
+            
+            if ($producto) {
+                $carrito = getCarrito();
+                
+                // Verificar si el producto ya está en el carrito
+                if (isset($carrito[$id_producto])) {
+                    // Actualizar cantidad
+                    $carrito[$id_producto]['cantidad'] += 1;
+                } else {
+                    // Añadir nuevo producto
+                    $carrito[$id_producto] = [
+                        'id' => $id_producto,
+                        'nombre' => $producto['nombre_producto'],
+                        'precio' => $producto['coste'],
+                        'cantidad' => 1,
+                        'imagen' => $producto['imagen']
+                    ];
+                }
+                
+                guardarCarrito($carrito);
+                $mensaje = "Producto añadido al carrito correctamente.";
+            } else {
+                $error = "Error: No se encontró el producto.";
             }
         }
         break;
@@ -78,7 +125,7 @@ switch ($operacion) {
         // Actualizar cantidad de un producto
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id_producto = $_POST['id_producto'] ?? '';
-            $cantidad = $_POST['cantidad'] ?? 1;
+            $cantidad = (int)($_POST['cantidad'] ?? 1);
             
             if (!empty($id_producto) && $cantidad > 0) {
                 $carrito = getCarrito();
@@ -93,7 +140,7 @@ switch ($operacion) {
         
     case 'clear':
         // Vaciar el carrito
-        setcookie('carrito', '', time() - 3600, "/");
+        $_SESSION['carrito'] = [];
         $mensaje = "Carrito vaciado correctamente.";
         break;
         

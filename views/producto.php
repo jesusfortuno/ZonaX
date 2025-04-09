@@ -3,6 +3,12 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start(); // Inicia la sesión solo si no está activa
 }
+
+// Configuración de errores
+error_reporting(E_ALL);
+ini_set('display_errors', 0); // No mostrar errores en pantalla
+ini_set('log_errors', 1);
+ini_set('error_log', __DIR__ . '/../error.log');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -246,10 +252,10 @@ if (session_status() === PHP_SESSION_NONE) {
 
 <?php
 if (isset($_SESSION['usuario'])) {
-    if ($_SESSION['rol'] === 'admin') {
-        include __DIR__ . '/header_admin.php';
+    if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin') {
+        include_once __DIR__ . '/header_admin.php';
     } else {
-        include __DIR__ . '/header_usuario.php';
+        include_once __DIR__ . '/header_usuario.php';
     }
 }
 ?>
@@ -280,9 +286,9 @@ if (isset($_SESSION['usuario'])) {
                 
                 <!-- Botón para añadir al carrito -->
                 <form action="index.php?action=carrito&op=add" method="post" class="form-carrito">
-                    <input type="hidden" name="id_producto" value="<?php echo htmlspecialchars($producto['id_producto']); ?>">
+                    <input type="hidden" name="id_producto" value="<?php echo $producto['id']; ?>">
                     <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($producto['nombre_producto']); ?>">
-                    <input type="hidden" name="precio" value="<?php echo htmlspecialchars($producto['coste']); ?>">
+                    <input type="hidden" name="precio" value="<?php echo $producto['coste']; ?>">
                     <input type="hidden" name="imagen" value="<?php echo htmlspecialchars($producto['imagen']); ?>">
                     <input type="number" name="cantidad" value="1" min="1" max="10" class="cantidad-input">
                     <button type="submit" class="btn-carrito">

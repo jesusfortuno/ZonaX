@@ -589,17 +589,17 @@ if (session_status() === PHP_SESSION_NONE) {
         }
 
         footer {
-    text-align: center;
-    padding: 1.5rem 0;
-    background-color: #ff6b6b;
-    color: white;
-    font-size: 0.9rem;
-    margin-top: 3rem;
-}
+            text-align: center;
+            padding: 1.5rem 0;
+            background-color: #ff6b6b;
+            color: white;
+            font-size: 0.9rem;
+            margin-top: 3rem;
+        }
 
-footer p {
-    margin: 0;
-}
+        footer p {
+            margin: 0;
+        }
 
         /* Animaciones */
         @keyframes fadeInUp {
@@ -715,10 +715,10 @@ footer p {
 
 <?php
 if (isset($_SESSION['usuario'])) {
-    if ($_SESSION['rol'] === 'admin') {
-        include __DIR__ . '/header_admin.php';
+    if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin') {
+        include_once __DIR__ . '/header_admin.php';
     } else {
-        include __DIR__ . '/header_usuario.php';
+        include_once __DIR__ . '/header_usuario.php';
     }
 }
 ?>
@@ -836,17 +836,6 @@ if (isset($_SESSION['usuario'])) {
     </div>
 
     <footer>
-    text-align: center;
-    padding: 1.5rem 0;
-    background-color: #ff6b6b;
-    color: white;
-    font-size: 0.9rem;
-    margin-top: 3rem;
-}
-
-footer p {
-    margin: 0;
-}
         <p>&copy; <?php echo date('Y'); ?> ZonaX. Todos los derechos reservados.</p>
     </footer>
 </div>

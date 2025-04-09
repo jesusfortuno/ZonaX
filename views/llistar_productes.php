@@ -1,9 +1,21 @@
 <?php
+// Iniciar sesión si no está iniciada
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Configuración de errores
+error_reporting(E_ALL);
+ini_set('display_errors', 0); // No mostrar errores en pantalla
+ini_set('log_errors', 1);
+ini_set('error_log', __DIR__ . '/../error.log');
+
+// Incluir headers según el rol del usuario
 if (isset($_SESSION['usuario'])) {
-    if ($_SESSION['rol'] === 'admin') {
-        include __DIR__ . '/header_admin.php';
+    if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin') {
+        include_once __DIR__ . '/header_admin.php';
     } else {
-        include __DIR__ . '/header_usuario.php';
+        include_once __DIR__ . '/header_usuario.php';
     }
 }
 ?>
@@ -23,15 +35,22 @@ if (isset($_SESSION['usuario'])) {
                         <h3 class="producto-titulo"><?php echo htmlspecialchars($producte['nombre_producto']); ?></h3>
                         <div class="descripcion-container">
                             <p class="descripcion"><?php echo htmlspecialchars($producte['descripción']); ?></p>
-                            <a href="index.php?action=detalle-producto&id=<?php echo $producte['id']; ?>" class="ver-mas">Ver más <i class="fas fa-arrow-right"></i></a>
+                            <a href="index.php?action=producto&id=<?php echo $producte['id']; ?>" class="ver-mas">Ver más <i class="fas fa-arrow-right"></i></a>
                         </div>
                         <div class="precio-container">
                             <p class="precio"><?php echo number_format($producte['coste'], 2); ?>€</p>
                         </div>
                         <?php if (isset($_SESSION['usuario'])) : ?>
-                            <button class="add-to-cart" data-product-id="<?php echo $producte['id']; ?>">
-                                <i class="fas fa-cart-plus"></i> Comprar
-                            </button>
+                            <form action="index.php?action=carrito&op=add" method="post" class="form-comprar">
+                                <input type="hidden" name="id_producto" value="<?php echo $producte['id']; ?>">
+                                <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($producte['nombre_producto']); ?>">
+                                <input type="hidden" name="precio" value="<?php echo $producte['coste']; ?>">
+                                <input type="hidden" name="imagen" value="<?php echo htmlspecialchars($producte['imagen']); ?>">
+                                <input type="hidden" name="cantidad" value="1">
+                                <button type="submit" class="add-to-cart">
+                                    <i class="fas fa-cart-plus"></i> Comprar
+                                </button>
+                            </form>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -186,6 +205,11 @@ if (isset($_SESSION['usuario'])) {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
+.form-comprar {
+    width: 100%;
+    margin-top: auto;
+}
+
 .add-to-cart {
     width: 100%;
     padding: 1.2rem;
@@ -203,7 +227,6 @@ if (isset($_SESSION['usuario'])) {
     gap: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-top: auto;
 }
 
 .add-to-cart:hover {
@@ -293,45 +316,14 @@ footer p {
 <?php if (isset($_SESSION['usuario'])) : ?>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.add-to-cart').forEach(button => {
-        button.addEventListener('click', function() {
-            const productId = this.dataset.productId;
+    document.querySelectorAll('.form-comprar').forEach(form => {
+        form.addEventListener('submit', function(e) {
+            // No prevenimos el evento por defecto para permitir que el formulario se envíe
+            const button = this.querySelector('.add-to-cart');
             
             // Cambiar el texto y estilo del botón al hacer clic
-            this.innerHTML = '<i class="fas fa-check"></i> Producto añadido';
-            this.style.background = 'linear-gradient(45deg, #4CAF50, #8BC34A)';
-            
-            // Deshabilitar el botón temporalmente
-            this.disabled = true;
-            
-            // Después de 2 segundos, restaurar el botón
-            setTimeout(() => {
-                this.innerHTML = '<i class="fas fa-cart-plus"></i> Comprar';
-                this.style.background = 'linear-gradient(45deg, var(--color-rosa), var(--color-naranja))';
-                this.disabled = false;
-            }, 2000);
-            
-            // Aquí puedes añadir la lógica para agregar al carrito usando AJAX
-            // Por ejemplo:
-            fetch('index.php?action=agregar-al-carrito', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: 'producto_id=' + productId
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    // Actualizar contador del carrito si es necesario
-                    if (document.querySelector('.cart-counter')) {
-                        document.querySelector('.cart-counter').textContent = data.total_items;
-                    }
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+            button.innerHTML = '<i class="fas fa-check"></i> Producto añadido';
+            button.style.background = 'linear-gradient(45deg, #4CAF50, #8BC34A)';
         });
     });
 });
