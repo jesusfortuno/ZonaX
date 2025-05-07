@@ -97,25 +97,32 @@ if (isset($_SESSION['usuario'])) {
 
 .producto-card {
     background: var(--color-blanco);
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     overflow: hidden;
     transition: all 0.4s ease;
     position: relative;
     display: flex;
     flex-direction: column;
     height: 100%;
+    animation: fadeIn 0.6s ease-out forwards;
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
 .producto-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 15px 35px rgba(255, 105, 180, 0.15);
+    border-color: rgba(255, 105, 180, 0.2);
 }
 
 .imagen-container {
     position: relative;
     height: 300px;
     overflow: hidden;
+    background: linear-gradient(45deg, #f8f9fa, #ffffff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .producto-card img {
@@ -126,23 +133,41 @@ if (isset($_SESSION['usuario'])) {
 }
 
 .producto-card:hover img {
-    transform: scale(1.1);
+    transform: scale(1.08);
 }
 
 .producto-info {
-    padding: 2rem;
-    background: linear-gradient(135deg, var(--color-blanco) 0%, var(--color-rosa-claro) 100%);
+    padding: 1.8rem;
+    background: linear-gradient(135deg, #ffffff 0%, #fff5f8 100%);
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.producto-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #ff6b6b, #ffa36b);
+    z-index: 2;
 }
 
 .producto-titulo {
-    color: var(--color-naranja);
+    color: #333;
     font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    line-height: 1.2;
+    line-height: 1.3;
+    transition: color 0.3s ease;
+}
+
+.producto-card:hover .producto-titulo {
+    color: #ff6b6b;
 }
 
 .descripcion-container {
@@ -151,7 +176,7 @@ if (isset($_SESSION['usuario'])) {
 }
 
 .descripcion {
-    color: #555;
+    color: #666;
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 0.5rem;
@@ -159,11 +184,11 @@ if (isset($_SESSION['usuario'])) {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    max-height: 3.5em; /* 2 líneas x 1.6 line-height + un poco extra */
+    max-height: 3.5em;
 }
 
 .ver-mas {
-    color: var(--color-rosa);
+    color: #ff6b6b;
     font-weight: 600;
     text-decoration: none;
     display: inline-flex;
@@ -173,28 +198,60 @@ if (isset($_SESSION['usuario'])) {
     transition: all 0.3s ease;
     position: relative;
     z-index: 2;
-    background-color: rgba(255, 255, 255, 0.7);
-    padding: 2px 5px;
+    padding: 2px 8px;
     border-radius: 4px;
     margin-top: 5px;
 }
 
+.ver-mas::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ff6b6b;
+    transition: width 0.3s ease;
+}
+
 .ver-mas:hover {
-    color: var(--color-naranja);
+    color: #ffa36b;
     transform: translateX(5px);
+}
+
+.ver-mas:hover::after {
+    width: 100%;
 }
 
 .ver-mas i {
     font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.ver-mas:hover i {
+    transform: translateX(3px);
 }
 
 .precio-container {
-    background: linear-gradient(45deg, var(--color-amarillo), var(--color-naranja));
+    background: linear-gradient(45deg, #ff6b6b, #ffa36b);
     padding: 0.8rem 1.5rem;
-    border-radius: 30px;
+    border-radius: 50px;
     display: inline-block;
     margin-bottom: 1.5rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.precio-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+    z-index: 1;
 }
 
 .precio {
@@ -203,6 +260,8 @@ if (isset($_SESSION['usuario'])) {
     color: var(--color-blanco);
     margin: 0;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 2;
 }
 
 .form-comprar {
@@ -213,10 +272,10 @@ if (isset($_SESSION['usuario'])) {
 .add-to-cart {
     width: 100%;
     padding: 1.2rem;
-    background: linear-gradient(45deg, var(--color-rosa), var(--color-naranja));
+    background: linear-gradient(45deg, #ff6b6b, #ffa36b);
     color: var(--color-blanco);
     border: none;
-    border-radius: 30px;
+    border-radius: 50px;
     cursor: pointer;
     font-size: 1.2rem;
     font-weight: 600;
@@ -227,12 +286,38 @@ if (isset($_SESSION['usuario'])) {
     gap: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.15);
+}
+
+.add-to-cart::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.2), rgba(255,255,255,0));
+    transition: left 0.7s ease;
+}
+
+.add-to-cart:hover::before {
+    left: 100%;
 }
 
 .add-to-cart:hover {
-    background: linear-gradient(45deg, var(--color-naranja), var(--color-rosa));
-    transform: scale(1.02);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(255, 105, 180, 0.25);
+}
+
+.add-to-cart i {
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+}
+
+.add-to-cart:hover i {
+    transform: scale(1.2);
 }
 
 .add-to-cart:disabled {
@@ -308,6 +393,10 @@ footer {
 footer p {
     margin: 0;
 }
+
+footer {
+    display: none; /* Hide the old footer */
+}
 </style>
 
 <!-- Añadir Font Awesome para los iconos -->
@@ -329,3 +418,5 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <?php endif; ?>
+
+<?php include __DIR__ . '/footer.php'; ?>

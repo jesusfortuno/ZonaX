@@ -164,8 +164,6 @@
         </div>
     </div>
 
-    <footer>
-        <p>&copy; 2024 ZonaX. Todos los derechos reservados.</p>
-    </footer>
+    <?php include __DIR__ . '/footer.php'; ?>
 </body>
 </html>

@@ -76,5 +76,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 // Obtener la lista de productos para mostrar
 $productos = getProductos($conexion);
+
+// Asegurarse de que cada producto tenga un campo 'id' para compatibilidad
+foreach ($productos as &$producto) {
+    if (!isset($producto['id']) && isset($producto['id_producto'])) {
+        $producto['id'] = $producto['id_producto'];
+    }
+}
+
 include __DIR__ . '/../views/listado_productos.php';
 ?>

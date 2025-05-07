@@ -143,5 +143,6 @@
 
     <p>¿Ya tienes cuenta? <a href="?action=login">Iniciar sesión</a></p>
     <p>¿Olvidaste tu contraseña? <a href="?action=recuperar-password">Recuperar contraseña</a></p>
+    <?php include __DIR__ . '/footer.php'; ?>
 </body>
 </html>

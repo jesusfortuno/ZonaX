@@ -3,7 +3,7 @@
 function getProductos($conection) {
     try {
         // Consulta parametrizada para evitar inyecciones SQL
-        $sql = "SELECT id_producto as id, nombre_producto, descripción, coste, id_categoria, imagen FROM PRODUCTOS";
+        $sql = "SELECT id_producto, nombre_producto, descripción, coste, id_categoria, imagen FROM PRODUCTOS";
         $stmt = $conection->prepare($sql);
         $stmt->execute();
         $resultat = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -11,6 +11,13 @@ function getProductos($conection) {
         // Verificar si hay resultados
         if (empty($resultat)) {
             error_log("No se encontraron productos en la base de datos");
+        }
+        
+        // Asegurarse de que cada producto tenga un campo 'id' para compatibilidad
+        foreach ($resultat as &$producto) {
+            if (!isset($producto['id']) && isset($producto['id_producto'])) {
+                $producto['id'] = $producto['id_producto'];
+            }
         }
         
         return $resultat;
