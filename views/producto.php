@@ -15,33 +15,42 @@ ini_set('error_log', __DIR__ . '/../error.log');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle del Producto</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title><?= !empty($producto) ? htmlspecialchars($producto['nombre_producto']) : 'Detalle del Producto' ?> - ZonaX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Definición de variables de color */
         :root {
-            --color-rosa: #FF69B4;
-            --color-naranja: #FFA500;
-            --color-amarillo: #FFD700;
-            --color-blanco: #FFFFFF;
-            --color-rosa-claro: #FFB6C1;
-            --color-naranja-claro: #FFD580;
-            --color-gris-claro: #f9f9f9;
-            --color-gris: #e0e0e0;
-            --color-texto: #333333;
-            --color-primario: #ff6b6b;
-            --color-secundario: #ffa36b;
-            --color-fondo: #ffffff;
-            --color-texto-secundario: #666666;
-            --color-borde: rgba(0,0,0,0.05);
+            --color-primary: #ff6b6b;
+            --color-primary-light: #fca5a5;
+            --color-primary-dark: #ef4444;
+            --color-secondary: #fb923c;
+            --color-secondary-light: #fdba74;
+            --color-accent: #fbbf24;
+            --color-white: #ffffff;
+            --color-gray-50: #f9fafb;
+            --color-gray-100: #f3f4f6;
+            --color-gray-200: #e5e7eb;
+            --color-gray-300: #d1d5db;
+            --color-gray-400: #9ca3af;
+            --color-gray-500: #6b7280;
+            --color-gray-600: #4b5563;
+            --color-gray-700: #374151;
+            --color-gray-800: #1f2937;
+            --color-gray-900: #111827;
+            --gradient-main: linear-gradient(90deg, #ff6b6b, #ffa36b);
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --transition-fast: all 0.3s ease;
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--color-gris-claro);
-            color: var(--color-texto);
+            background-color: var(--color-gray-50);
+            color: var(--color-gray-800);
         }
 
         /* Estilos para la visualización del detalle del producto */
@@ -51,15 +60,38 @@ ini_set('error_log', __DIR__ . '/../error.log');
             padding: 0 1rem;
         }
 
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--color-gray-500);
+        }
+
+        .breadcrumb a {
+            color: var(--color-gray-600);
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--color-primary);
+        }
+
+        .breadcrumb i {
+            font-size: 0.7rem;
+            color: var(--color-gray-400);
+        }
+
         .producto-detalle {
-            background: var(--color-fondo);
+            background: var(--color-white);
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: var(--shadow-lg);
             overflow: hidden;
             display: flex;
             flex-wrap: wrap;
             position: relative;
-            border: 1px solid var(--color-borde);
         }
 
         .producto-galeria {
@@ -69,22 +101,48 @@ ini_set('error_log', __DIR__ . '/../error.log');
             background: linear-gradient(45deg, #f8f9fa, #ffffff);
             padding: 2rem;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            gap: 1.5rem;
         }
 
         .producto-imagen-principal {
             width: 100%;
             height: auto;
-            max-height: 500px;
+            max-height: 400px;
             object-fit: contain;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: var(--shadow-md);
             transition: transform 0.5s ease;
         }
 
         .producto-imagen-principal:hover {
-            transform: scale(1.03);
+            transform: scale(1.05);
+        }
+
+        .producto-miniaturas {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .producto-miniatura {
+            width: 70px;
+            height: 70px;
+            border-radius: 8px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition-fast);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .producto-miniatura:hover, .producto-miniatura.active {
+            border-color: var(--color-primary);
+            transform: translateY(-3px);
         }
 
         .producto-info-container {
@@ -102,12 +160,12 @@ ini_set('error_log', __DIR__ . '/../error.log');
             left: 0;
             right: 0;
             height: 6px;
-            background: linear-gradient(90deg, var(--color-primario), var(--color-secundario));
+            background: var(--gradient-main);
         }
 
         .producto-titulo {
             font-size: 2.5rem;
-            color: #333;
+            color: var(--color-gray-800);
             margin-bottom: 1.5rem;
             font-weight: 700;
             line-height: 1.2;
@@ -122,7 +180,7 @@ ini_set('error_log', __DIR__ . '/../error.log');
             left: 0;
             width: 80px;
             height: 4px;
-            background: linear-gradient(90deg, var(--color-primario), var(--color-secundario));
+            background: var(--gradient-main);
             border-radius: 2px;
         }
 
@@ -134,12 +192,12 @@ ini_set('error_log', __DIR__ . '/../error.log');
         .producto-descripcion {
             font-size: 1.1rem;
             line-height: 1.8;
-            color: var(--color-texto-secundario);
+            color: var(--color-gray-600);
             background: rgba(255, 255, 255, 0.7);
             padding: 1.5rem;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-            border: 1px solid var(--color-borde);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--color-gray-200);
         }
 
         .producto-meta {
@@ -151,7 +209,7 @@ ini_set('error_log', __DIR__ . '/../error.log');
         }
 
         .producto-precio-container {
-            background: linear-gradient(45deg, var(--color-primario), var(--color-secundario));
+            background: var(--gradient-main);
             padding: 0.8rem 1.5rem;
             border-radius: 50px;
             display: inline-flex;
@@ -175,7 +233,7 @@ ini_set('error_log', __DIR__ . '/../error.log');
         .producto-precio {
             font-size: 2rem;
             font-weight: bold;
-            color: var(--color-blanco);
+            color: var(--color-white);
             margin: 0;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
             position: relative;
@@ -217,7 +275,7 @@ ini_set('error_log', __DIR__ . '/../error.log');
             background: #f5f5f5;
             border-radius: 50px;
             padding: 0.3rem;
-            border: 1px solid var(--color-borde);
+            border: 1px solid var(--color-gray-200);
         }
 
         .btn-cantidad {
@@ -226,18 +284,18 @@ ini_set('error_log', __DIR__ . '/../error.log');
             border-radius: 50%;
             border: none;
             background: white;
-            color: #333;
+            color: var(--color-gray-700);
             font-size: 1.2rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-fast);
         }
 
         .btn-cantidad:hover {
-            background: #f0f0f0;
+            background: var(--color-gray-100);
             transform: translateY(-2px);
         }
 
@@ -248,7 +306,7 @@ ini_set('error_log', __DIR__ . '/../error.log');
             background: transparent;
             font-size: 1.1rem;
             font-weight: 600;
-            color: #333;
+            color: var(--color-gray-700);
             padding: 0.5rem;
         }
 
@@ -260,14 +318,14 @@ ini_set('error_log', __DIR__ . '/../error.log');
             flex: 1;
             min-width: 200px;
             padding: 1rem 1.5rem;
-            background: linear-gradient(45deg, var(--color-primario), var(--color-secundario));
-            color: var(--color-blanco);
+            background: var(--gradient-main);
+            color: var(--color-white);
             border: none;
             border-radius: 50px;
             cursor: pointer;
             font-size: 1.1rem;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: var(--transition-fast);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -306,23 +364,45 @@ ini_set('error_log', __DIR__ . '/../error.log');
             transform: scale(1.2);
         }
 
+        .btn-wishlist {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background: white;
+            color: var(--color-gray-500);
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-fast);
+        }
+
+        .btn-wishlist:hover {
+            color: var(--color-primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
         .btn-volver {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
             margin-top: 2rem;
-            color: var(--color-primario);
+            color: var(--color-primary);
             text-decoration: none;
             font-weight: 600;
             font-size: 1rem;
-            transition: all 0.3s ease;
+            transition: var(--transition-fast);
             padding: 0.8rem 1.5rem;
             border-radius: 50px;
             background: rgba(255, 107, 107, 0.1);
         }
 
         .btn-volver:hover {
-            color: var(--color-secundario);
+            color: var(--color-secondary);
             transform: translateX(-5px);
             background: rgba(255, 107, 107, 0.15);
         }
@@ -340,13 +420,13 @@ ini_set('error_log', __DIR__ . '/../error.log');
             background: white;
             border-radius: 15px;
             padding: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-            border: 1px solid var(--color-borde);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--color-gray-200);
         }
 
         .caracteristicas-titulo {
             font-size: 1.3rem;
-            color: #333;
+            color: var(--color-gray-800);
             margin-bottom: 1rem;
             position: relative;
             display: inline-block;
@@ -359,7 +439,7 @@ ini_set('error_log', __DIR__ . '/../error.log');
             left: 0;
             width: 50px;
             height: 3px;
-            background: linear-gradient(90deg, var(--color-primario), var(--color-secundario));
+            background: var(--gradient-main);
             border-radius: 2px;
         }
 
@@ -377,23 +457,23 @@ ini_set('error_log', __DIR__ . '/../error.log');
             align-items: center;
             gap: 0.5rem;
             padding: 0.5rem 0;
-            color: var(--color-texto-secundario);
+            color: var(--color-gray-600);
         }
 
         .caracteristica-item i {
-            color: var(--color-primario);
+            color: var(--color-primary);
             font-size: 0.9rem;
         }
 
         .error-mensaje {
-            color: var(--color-primario);
+            color: var(--color-primary);
             font-size: 1.3rem;
             text-align: center;
             margin: 3rem auto;
             padding: 2rem;
-            background: var(--color-blanco);
+            background: var(--color-white);
             border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: var(--shadow-md);
             max-width: 800px;
         }
 
@@ -401,6 +481,160 @@ ini_set('error_log', __DIR__ . '/../error.log');
             margin-top: 1.5rem;
             display: inline-flex;
             justify-content: center;
+        }
+
+        /* Productos relacionados */
+        .productos-relacionados {
+            margin-top: 3rem;
+        }
+
+        .relacionados-titulo {
+            font-size: 1.8rem;
+            color: var(--color-gray-800);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .relacionados-titulo::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-main);
+            border-radius: 2px;
+        }
+
+        .relacionados-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .producto-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-fast);
+            border: 1px solid var(--color-gray-200);
+        }
+
+        .producto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .producto-card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .producto-card-content {
+            padding: 1.5rem;
+        }
+
+        .producto-card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--color-gray-800);
+        }
+
+        .producto-card-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .producto-card-btn {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--gradient-main);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .producto-card-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Reseñas */
+        .producto-reviews {
+            margin-top: 3rem;
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .reviews-titulo {
+            font-size: 1.5rem;
+            color: var(--color-gray-800);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .reviews-titulo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient-main);
+            border-radius: 2px;
+        }
+
+        .review-item {
+            border-bottom: 1px solid var(--color-gray-200);
+            padding: 1.5rem 0;
+        }
+
+        .review-item:last-child {
+            border-bottom: none;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: var(--color-gray-800);
+        }
+
+        .review-date {
+            font-size: 0.9rem;
+            color: var(--color-gray-500);
+        }
+
+        .review-rating {
+            margin-bottom: 0.5rem;
+            color: var(--color-accent);
+        }
+
+        .review-content {
+            color: var(--color-gray-600);
+            line-height: 1.6;
         }
 
         /* Responsive */
@@ -415,6 +649,10 @@ ini_set('error_log', __DIR__ . '/../error.log');
             
             .producto-galeria, .producto-info-container {
                 padding: 1.5rem;
+            }
+
+            .relacionados-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             }
         }
 
@@ -431,6 +669,25 @@ ini_set('error_log', __DIR__ . '/../error.log');
                 width: 100%;
                 justify-content: center;
             }
+
+            .producto-meta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .producto-detalle {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .producto-card {
+            animation: fadeIn 0.5s ease-out;
         }
     </style>
 </head>
@@ -443,6 +700,8 @@ if (isset($_SESSION['usuario'])) {
     } else {
         include_once __DIR__ . '/header_usuario.php';
     }
+} else {
+    include_once __DIR__ . '/header_usuario.php';
 }
 ?>
 
@@ -455,13 +714,33 @@ if (isset($_SESSION['usuario'])) {
             </a>
         </div>
     <?php elseif (!empty($producto)): ?>
+        <div class="breadcrumb">
+            <a href="?action=portada">Inicio</a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="?action=categorias">Categorías</a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="?action=categoria&categoria=<?= $producto['id_categoria'] ?? 1 ?>"><?= !empty($categoria) ? htmlspecialchars($categoria['nombre_categoria']) : 'Categoría' ?></a>
+            <i class="fas fa-chevron-right"></i>
+            <span><?= htmlspecialchars($producto['nombre_producto']); ?></span>
+        </div>
+
         <div class="producto-detalle">
             <div class="producto-galeria">
                 <?php if (!empty($producto['imagen'])): ?>
-                    <img src="<?php echo htmlspecialchars($producto['imagen']); ?>" alt="<?php echo htmlspecialchars($producto['nombre_producto']); ?>" class="producto-imagen-principal">
+                    <img src="<?php echo htmlspecialchars($producto['imagen']); ?>" alt="<?php echo htmlspecialchars($producto['nombre_producto']); ?>" class="producto-imagen-principal" id="imagen-principal">
                 <?php else: ?>
-                    <img src="img/default.jpg" alt="Imagen no disponible" class="producto-imagen-principal">
+                    <img src="img/default.jpg" alt="Imagen no disponible" class="producto-imagen-principal" id="imagen-principal">
                 <?php endif; ?>
+
+                <!-- Miniaturas (simuladas) -->
+                <div class="producto-miniaturas">
+                    <?php if (!empty($producto['imagen'])): ?>
+                        <img src="<?php echo htmlspecialchars($producto['imagen']); ?>" alt="Miniatura 1" class="producto-miniatura active" onclick="cambiarImagen(this.src)">
+                        <img src="img/default-1.jpg" alt="Miniatura 2" class="producto-miniatura" onclick="cambiarImagen(this.src)">
+                        <img src="img/default-2.jpg" alt="Miniatura 3" class="producto-miniatura" onclick="cambiarImagen(this.src)">
+                        <img src="img/default-3.jpg" alt="Miniatura 4" class="producto-miniatura" onclick="cambiarImagen(this.src)">
+                    <?php endif; ?>
+                </div>
             </div>
             <div class="producto-info-container">
                 <h1 class="producto-titulo"><?php echo htmlspecialchars($producto['nombre_producto']); ?></h1>
@@ -497,6 +776,12 @@ if (isset($_SESSION['usuario'])) {
                         <li class="caracteristica-item">
                             <i class="fas fa-check"></i> Atención al cliente 24/7
                         </li>
+                        <li class="caracteristica-item">
+                            <i class="fas fa-check"></i> Pago seguro
+                        </li>
+                        <li class="caracteristica-item">
+                            <i class="fas fa-check"></i> Envío discreto
+                        </li>
                     </ul>
                 </div>
                 
@@ -521,6 +806,10 @@ if (isset($_SESSION['usuario'])) {
                         <button type="submit" class="btn-carrito">
                             <i class="fas fa-shopping-cart"></i> Añadir al carrito
                         </button>
+
+                        <button type="button" class="btn-wishlist" title="Añadir a favoritos">
+                            <i class="fas fa-heart"></i>
+                        </button>
                     </form>
                 </div>
                 
@@ -528,6 +817,111 @@ if (isset($_SESSION['usuario'])) {
                     <i class="fas fa-arrow-left"></i> Volver a la página anterior
                 </a>
             </div>
+        </div>
+
+        <!-- Productos relacionados -->
+        <div class="productos-relacionados">
+            <h2 class="relacionados-titulo">Productos relacionados</h2>
+            <div class="relacionados-grid">
+                <?php if (!empty($productos_relacionados)): ?>
+                    <?php foreach ($productos_relacionados as $relacionado): ?>
+                        <div class="producto-card">
+                            <img src="<?= htmlspecialchars($relacionado['imagen'] ?? 'img/default.jpg'); ?>" alt="<?= htmlspecialchars($relacionado['nombre_producto']); ?>" class="producto-card-img">
+                            <div class="producto-card-content">
+                                <h3 class="producto-card-title"><?= htmlspecialchars($relacionado['nombre_producto']); ?></h3>
+                                <p class="producto-card-price"><?= number_format($relacionado['coste'], 2); ?> €</p>
+                                <a href="?action=producto&id=<?= $relacionado['id']; ?>" class="producto-card-btn">
+                                    <i class="fas fa-eye"></i> Ver producto
+                                </a>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <!-- Productos relacionados de ejemplo -->
+                    <div class="producto-card">
+                        <img src="img/default.jpg" alt="Producto relacionado" class="producto-card-img">
+                        <div class="producto-card-content">
+                            <h3 class="producto-card-title">Producto relacionado 1</h3>
+                            <p class="producto-card-price">29.99 €</p>
+                            <button class="producto-card-btn">
+                                <i class="fas fa-eye"></i> Ver producto
+                            </button>
+                        </div>
+                    </div>
+                    <div class="producto-card">
+                        <img src="img/default.jpg" alt="Producto relacionado" class="producto-card-img">
+                        <div class="producto-card-content">
+                            <h3 class="producto-card-title">Producto relacionado 2</h3>
+                            <p class="producto-card-price">39.99 €</p>
+                            <button class="producto-card-btn">
+                                <i class="fas fa-eye"></i> Ver producto
+                            </button>
+                        </div>
+                    </div>
+                    <div class="producto-card">
+                        <img src="img/default.jpg" alt="Producto relacionado" class="producto-card-img">
+                        <div class="producto-card-content">
+                            <h3 class="producto-card-title">Producto relacionado 3</h3>
+                            <p class="producto-card-price">49.99 €</p>
+                            <button class="producto-card-btn">
+                                <i class="fas fa-eye"></i> Ver producto
+                            </button>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+
+        <!-- Reseñas de productos -->
+        <div class="producto-reviews">
+            <h2 class="reviews-titulo">Opiniones de clientes</h2>
+            
+            <?php if (!empty($reviews)): ?>
+                <?php foreach ($reviews as $review): ?>
+                    <div class="review-item">
+                        <div class="review-header">
+                            <span class="review-author"><?= htmlspecialchars($review['nombre_usuario']); ?></span>
+                            <span class="review-date"><?= htmlspecialchars($review['fecha']); ?></span>
+                        </div>
+                        <div class="review-rating">
+                            <?php for ($i = 1; $i <= 5; $i++): ?>
+                                <i class="fas fa-star<?= $i <= $review['puntuacion'] ? '' : '-o'; ?>"></i>
+                            <?php endfor; ?>
+                        </div>
+                        <p class="review-content"><?= htmlspecialchars($review['comentario']); ?></p>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <!-- Reseñas de ejemplo -->
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="review-author">María García</span>
+                        <span class="review-date">15/04/2023</span>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-content">Excelente producto, cumple perfectamente con lo que promete. La entrega fue rápida y el embalaje muy discreto. ¡Lo recomiendo!</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="review-author">Carlos Rodríguez</span>
+                        <span class="review-date">03/03/2023</span>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="review-content">Muy buen producto, aunque el envío tardó un poco más de lo esperado. La calidad es excelente y el precio está bien.</p>
+                </div>
+            <?php endif; ?>
         </div>
     <?php endif; ?>
 </div>
@@ -550,6 +944,28 @@ function incrementarCantidad() {
         input.value = valor + 1;
     }
 }
+
+function cambiarImagen(src) {
+    document.getElementById('imagen-principal').src = src;
+    
+    // Actualizar clase activa en miniaturas
+    const miniaturas = document.querySelectorAll('.producto-miniatura');
+    miniaturas.forEach(miniatura => {
+        if (miniatura.src === src) {
+            miniatura.classList.add('active');
+        } else {
+            miniatura.classList.remove('active');
+        }
+    });
+}
+
+// Inicializar la primera miniatura como activa
+document.addEventListener('DOMContentLoaded', function() {
+    const primeraMinatura = document.querySelector('.producto-miniatura');
+    if (primeraMinatura) {
+        primeraMinatura.classList.add('active');
+    }
+});
 </script>
 
 </body>
