@@ -26,6 +26,8 @@ ini_set('error_log', __DIR__ . '/../error.log');
             --color-blanco: #FFFFFF;
             --color-rosa-claro: #FFB6C1;
             --color-naranja-claro: #FFD580;
+            --color-primario: #ff6b6b;
+            --color-secundario: #ffa36b;
         }
 
         body {
@@ -44,13 +46,30 @@ ini_set('error_log', __DIR__ . '/../error.log');
 
         .categoria-titulo {
             text-align: center;
-            color: var(--color-rosa);
+            background: linear-gradient(90deg, var(--color-primario), var(--color-secundario));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             font-size: 3rem;
             margin: 2rem 0;
             text-transform: uppercase;
             letter-spacing: 3px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
             font-weight: bold;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .categoria-titulo::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primario), var(--color-secundario));
+            border-radius: 2px;
         }
 
         .productos-grid {
@@ -62,8 +81,8 @@ ini_set('error_log', __DIR__ . '/../error.log');
 
         .producto-card {
             background: var(--color-blanco);
-            border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             overflow: hidden;
             transition: all 0.4s ease;
             position: relative;
@@ -71,17 +90,23 @@ ini_set('error_log', __DIR__ . '/../error.log');
             flex-direction: column;
             height: 100%;
             animation: fadeIn 0.6s ease-out forwards;
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
         .producto-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 35px rgba(255, 105, 180, 0.15);
+            border-color: rgba(255, 105, 180, 0.2);
         }
 
         .imagen-container {
             position: relative;
-            height: 250px;
+            height: 280px;
             overflow: hidden;
+            background: linear-gradient(45deg, #f8f9fa, #ffffff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .producto-card img {
@@ -92,30 +117,62 @@ ini_set('error_log', __DIR__ . '/../error.log');
         }
 
         .producto-card:hover img {
-            transform: scale(1.1);
+            transform: scale(1.08);
+        }
+
+        .producto-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(45deg, var(--color-primario), var(--color-secundario));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(255, 105, 180, 0.2);
+            z-index: 10;
         }
 
         .producto-info {
-            padding: 1.5rem;
-            background: linear-gradient(135deg, var(--color-blanco) 0%, var(--color-rosa-claro) 100%);
+            padding: 1.8rem;
+            background: linear-gradient(135deg, #ffffff 0%, #fff5f8 100%);
             display: flex;
             flex-direction: column;
             flex-grow: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .producto-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--color-primario), var(--color-secundario));
+            z-index: 2;
         }
 
         .producto-titulo {
-            color: var(--color-naranja);
-            font-size: 1.5rem;
+            color: #333;
+            font-size: 1.6rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            line-height: 1.2;
+            line-height: 1.3;
+            transition: color 0.3s ease;
+        }
+
+        .producto-card:hover .producto-titulo {
+            color: var(--color-primario);
         }
 
         .descripcion {
-            color: #555;
+            color: #666;
             font-size: 1rem;
             line-height: 1.6;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
@@ -124,14 +181,27 @@ ini_set('error_log', __DIR__ . '/../error.log');
         }
 
         .precio-container {
-            background: linear-gradient(45deg, var(--color-amarillo), var(--color-naranja));
-            padding: 0.6rem 1.2rem;
-            border-radius: 30px;
+            background: linear-gradient(45deg, var(--color-primario), var(--color-secundario));
+            padding: 0.7rem 1.4rem;
+            border-radius: 50px;
             display: inline-block;
             margin-top: auto;
-            margin-bottom: 0.5rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 1.2rem;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2);
             align-self: flex-start;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .precio-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+            z-index: 1;
         }
 
         .precio {
@@ -140,15 +210,17 @@ ini_set('error_log', __DIR__ . '/../error.log');
             color: var(--color-blanco);
             margin: 0;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
         }
 
         .ver-detalles {
             width: 100%;
-            padding: 0.8rem;
-            background: linear-gradient(45deg, var(--color-rosa), var(--color-naranja));
+            padding: 1rem;
+            background: linear-gradient(45deg, var(--color-primario), var(--color-secundario));
             color: var(--color-blanco);
             border: none;
-            border-radius: 30px;
+            border-radius: 50px;
             cursor: pointer;
             font-size: 1rem;
             font-weight: 600;
@@ -160,13 +232,39 @@ ini_set('error_log', __DIR__ . '/../error.log');
             text-transform: uppercase;
             letter-spacing: 1px;
             text-decoration: none;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.15);
+        }
+
+        .ver-detalles::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.2), rgba(255,255,255,0));
+            transition: left 0.7s ease;
+        }
+
+        .ver-detalles:hover::before {
+            left: 100%;
         }
 
         .ver-detalles:hover {
-            background: linear-gradient(45deg, var(--color-naranja), var(--color-rosa));
-            transform: scale(1.02);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(255, 105, 180, 0.25);
+        }
+
+        .ver-detalles i {
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .ver-detalles:hover i {
+            transform: scale(1.2);
         }
 
         .no-productos {
@@ -264,6 +362,9 @@ if (isset($_SESSION['usuario'])) {
         <div class="productos-grid">
             <?php foreach ($productos as $producto): ?>
                 <div class="producto-card">
+                    <?php if (rand(0, 1) == 1): ?>
+                        <div class="producto-badge">Destacado</div>
+                    <?php endif; ?>
                     <div class="imagen-container">
                         <?php if (!empty($producto['imagen'])): ?>
                             <img src="<?php echo htmlspecialchars($producto['imagen']); ?>" alt="<?php echo htmlspecialchars($producto['nombre_producto']); ?>">
@@ -292,9 +393,7 @@ if (isset($_SESSION['usuario'])) {
     <?php endif; ?>
 </div>
 
-<footer>
-    <p>&copy; 2024 ZonaX. Todos los derechos reservados.</p>
-</footer>
+<?php include __DIR__ . '/footer.php'; ?>
 
 </body>
 </html>

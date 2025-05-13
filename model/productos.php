@@ -104,4 +104,78 @@ function getProductoById($conection, $id_producto) {
         return null;
     }
 }
+
+/**
+ * Función auxiliar para obtener productos (para compatibilidad)
+ * @return array Arreglo con todos los productos
+ */
+function obtenerProductos() {
+    // Productos de ejemplo
+    return [
+        [
+            'id' => 1,
+            'nombre_producto' => 'Morgan 2',
+            'descripción' => 'Estimula la zona G y el clítoris con este vibrador de doble función.',
+            'coste' => 59.99,
+            'id_categoria' => 1,
+            'imagen' => 'img/morgan2.jpg'
+        ],
+        [
+            'id' => 2,
+            'nombre_producto' => 'SENSEI masturbador para pene',
+            'descripción' => 'Sensei es un masturbador de pene reutilizable con textura interior estimulante.',
+            'coste' => 50.00,
+            'id_categoria' => 2,
+            'imagen' => 'img/sensei.jpg'
+        ],
+        [
+            'id' => 3,
+            'nombre_producto' => 'Juguete sexual para parejas Mobi PlatanoMelón',
+            'descripción' => 'Mobi es un juguete todoterreno con control remoto para disfrutar en pareja.',
+            'coste' => 70.00,
+            'id_categoria' => 3,
+            'imagen' => 'img/mobi.jpg'
+        ],
+        [
+            'id' => 4,
+            'nombre_producto' => 'PLAY EFECTO CALOR Y FRÍO lubricante íntimo',
+            'descripción' => 'PLAY EFECTO CALOR Y FRÍO lubricante íntimo de DUREX con sensaciones térmicas.',
+            'coste' => 10.00,
+            'id_categoria' => 4,
+            'imagen' => 'img/play.jpg'
+        ],
+        [
+            'id' => 5,
+            'nombre_producto' => 'SENSITIVO SUAVE preservativos',
+            'descripción' => 'SENSITIVO SUAVE preservativos de DUREX para una sensación natural.',
+            'coste' => 20.00,
+            'id_categoria' => 5,
+            'imagen' => 'img/sensitivo.jpg'
+        ],
+        [
+            'id' => 6,
+            'nombre_producto' => 'Camiseta lisa puntilla',
+            'descripción' => 'Camiseta básica lisa con detalle de encaje en escote y tirantes.',
+            'coste' => 10.00,
+            'id_categoria' => 6,
+            'imagen' => 'img/camiseta.jpg'
+        ],
+        [
+            'id' => 7,
+            'nombre_producto' => 'Esposas sexuales, esposas de tobillo, Kit de Bondage',
+            'descripción' => 'Kit completo de accesorios BDSM para principiantes y experimentados.',
+            'coste' => 35.00,
+            'id_categoria' => 7,
+            'imagen' => 'img/esposas.jpg'
+        ],
+        [
+            'id' => 8,
+            'nombre_producto' => 'Vibrador Rabbit Deluxe',
+            'descripción' => 'Vibrador con doble estimulación y múltiples velocidades para un placer intenso.',
+            'coste' => 65.99,
+            'id_categoria' => 1,
+            'imagen' => 'img/rabbit.jpg'
+        ]
+    ];
+}
 ?>

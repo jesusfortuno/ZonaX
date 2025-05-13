@@ -56,6 +56,7 @@ switch ($operacion) {
                     // Actualizar cantidad
                     $_SESSION['carrito'][$id_producto]['cantidad'] += $cantidad;
                     error_log("Producto ya en carrito, actualizando cantidad a: " . $_SESSION['carrito'][$id_producto]['cantidad']);
+                    $mensaje = "Cantidad actualizada en el carrito.";
                 } else {
                     // Añadir nuevo producto
                     $_SESSION['carrito'][$id_producto] = [
@@ -66,9 +67,8 @@ switch ($operacion) {
                         'imagen' => $imagen
                     ];
                     error_log("Nuevo producto añadido al carrito");
+                    $mensaje = "Producto añadido al carrito correctamente.";
                 }
-                
-                $mensaje = "Producto añadido al carrito correctamente.";
                 
                 // Redireccionar a la página del carrito
                 header("Location: index.php?action=carrito&op=ver");
@@ -91,6 +91,7 @@ switch ($operacion) {
                 if (isset($carrito[$id_producto])) {
                     // Actualizar cantidad
                     $carrito[$id_producto]['cantidad'] += 1;
+                    $mensaje = "Cantidad actualizada en el carrito.";
                 } else {
                     // Añadir nuevo producto
                     $carrito[$id_producto] = [
@@ -100,10 +101,14 @@ switch ($operacion) {
                         'cantidad' => 1,
                         'imagen' => $producto['imagen']
                     ];
+                    $mensaje = "Producto añadido al carrito correctamente.";
                 }
                 
                 guardarCarrito($carrito);
-                $mensaje = "Producto añadido al carrito correctamente.";
+                
+                // Redireccionar a la página del carrito
+                header("Location: index.php?action=carrito&op=ver");
+                exit;
             } else {
                 $error = "Error: No se encontró el producto.";
             }
@@ -116,6 +121,7 @@ switch ($operacion) {
         if (!empty($id_producto)) {
             $carrito = getCarrito();
             if (isset($carrito[$id_producto])) {
+                $nombre_producto = $carrito[$id_producto]['nombre'];
                 unset($carrito[$id_producto]);
                 guardarCarrito($carrito);
                 $mensaje = "Producto eliminado del carrito.";

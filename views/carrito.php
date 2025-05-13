@@ -16,47 +16,50 @@ if (session_status() === PHP_SESSION_NONE) {
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-rosa: #FF69B4;
-            --color-rosa-claro: #FFB6C1;
-            --color-rosa-oscuro: #FF1493;
-            --color-naranja: #FFA500;
-            --color-naranja-claro: #FFD580;
-            --color-naranja-oscuro: #FF8C00;
-            --color-amarillo: #FFD700;
-            --color-blanco: #FFFFFF;
-            --color-gris-claro: #f8f9fa;
-            --color-gris: #6c757d;
-            --color-verde: #28a745;
-            --color-rojo: #dc3545;
-            --color-texto: #333333;
-            --color-fondo: #f9f9f9;
-            --gradient-primary: linear-gradient(135deg, #FF69B4, #FFA500);
-            --gradient-secondary: linear-gradient(135deg, #FFB6C1, #FFD580);
-            --gradient-button: linear-gradient(45deg, var(--color-rosa), var(--color-naranja));
-            --gradient-button-hover: linear-gradient(45deg, var(--color-naranja), var(--color-rosa));
-            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 6px 15px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
-            --border-radius-sm: 10px;
-            --border-radius-md: 15px;
-            --border-radius-lg: 20px;
-            --border-radius-xl: 30px;
-            --transition-fast: all 0.3s ease;
-            --transition-medium: all 0.5s ease;
-            --transition-slow: all 0.8s ease;
+            --color-primary: #f87171;
+            --color-primary-light: #fca5a5;
+            --color-primary-dark: #ef4444;
+            --color-secondary: #fb923c;
+            --color-secondary-light: #fdba74;
+            --color-accent: #fbbf24;
+            --color-white: #ffffff;
+            --color-light: #f9fafb;
+            --color-gray-50: #f9fafb;
+            --color-gray-100: #f3f4f6;
+            --color-gray-200: #e5e7eb;
+            --color-gray-300: #d1d5db;
+            --color-gray-400: #9ca3af;
+            --color-gray-500: #6b7280;
+            --color-gray-600: #4b5563;
+            --color-gray-700: #374151;
+            --color-gray-800: #1f2937;
+            --color-gray-900: #111827;
+            --color-success: #10b981;
+            --color-danger: #ef4444;
+            --gradient-main: linear-gradient(90deg, #ff6b6b, #ffa36b);
+            --gradient-subtle: linear-gradient(135deg, rgba(248, 113, 113, 0.8) 0%, rgba(251, 146, 60, 0.8) 100%);
+            --gradient-light: linear-gradient(135deg, rgba(248, 113, 113, 0.2) 0%, rgba(251, 146, 60, 0.2) 100%);
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.05), 0 4px 6px rgba(0, 0, 0, 0.05);
+            --border-radius-sm: 0.375rem;
+            --border-radius-md: 0.5rem;
+            --border-radius-lg: 0.75rem;
+            --border-radius-xl: 1rem;
+            --transition-fast: all 0.2s ease;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--color-fondo);
-            color: var(--color-texto);
-            line-height: 1.6;
+            background-color: var(--color-gray-50);
+            color: var(--color-gray-800);
+            line-height: 1.5;
         }
 
         .page-container {
@@ -77,154 +80,123 @@ if (session_status() === PHP_SESSION_NONE) {
         }
 
         .carrito-card {
-            background-color: var(--color-blanco);
+            background-color: var(--color-white);
             border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-md);
             overflow: hidden;
             position: relative;
             z-index: 1;
+            border: 1px solid var(--color-gray-200);
         }
 
         .carrito-header {
-            background: var(--gradient-primary);
-            padding: 2rem;
+            background: linear-gradient(90deg, #ff6b6b, #ffa36b);
+            padding: 1.5rem;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
         .carrito-titulo {
-            font-size: 2.5rem;
-            color: var(--color-blanco);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 700;
+            font-size: 1.75rem;
+            color: var(--color-white);
+            font-weight: 600;
             margin: 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-            position: relative;
-            z-index: 2;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .carrito-body {
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         .mensaje {
-            background: var(--color-blanco);
-            color: var(--color-verde);
-            padding: 1.2rem;
-            margin-bottom: 2rem;
+            background: var(--color-gray-50);
+            color: var(--color-success);
+            padding: 0.75rem 1rem;
+            margin-bottom: 1.5rem;
             border-radius: var(--border-radius-md);
-            text-align: center;
-            font-weight: 500;
-            box-shadow: var(--shadow-sm);
-            border-left: 5px solid var(--color-verde);
-            position: relative;
-            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-left: 3px solid var(--color-success);
         }
 
         .mensaje i {
-            font-size: 1.2rem;
-            margin-right: 0.5rem;
+            font-size: 1rem;
         }
 
         .error {
-            color: var(--color-rojo);
-            border-left: 5px solid var(--color-rojo);
+            color: var(--color-danger);
+            border-left: 3px solid var(--color-danger);
         }
 
         .carrito-vacio {
             text-align: center;
-            padding: 4rem 2rem;
-            background: var(--gradient-secondary);
-            border-radius: var(--border-radius-lg);
-            position: relative;
-            overflow: hidden;
+            padding: 3rem 2rem;
+            background: var(--color-gray-50);
+            border-radius: var(--border-radius-md);
+            border: 1px dashed var(--color-gray-300);
         }
 
         .carrito-vacio-icon {
-            font-size: 5rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 1.5rem;
-            display: inline-block;
+            font-size: 3rem;
+            color: var(--color-gray-400);
+            margin-bottom: 1rem;
         }
 
         .carrito-vacio-text {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--color-texto);
-            margin-bottom: 2rem;
-            position: relative;
-            z-index: 1;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--color-gray-700);
+            margin-bottom: 1.5rem;
         }
 
         .btn-seguir-comprando {
-            background: var(--gradient-button);
-            color: var(--color-blanco);
+            background: var(--color-primary);
+            color: var(--color-white);
             border: none;
-            padding: 1rem 2rem;
-            border-radius: var(--border-radius-xl);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius-md);
             text-decoration: none;
             transition: var(--transition-fast);
-            font-weight: 600;
+            font-weight: 500;
             display: inline-flex;
             align-items: center;
-            gap: 0.8rem;
-            box-shadow: var(--shadow-md);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
+            gap: 0.5rem;
+            box-shadow: var(--shadow-sm);
         }
 
         .btn-seguir-comprando:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            background: var(--gradient-button-hover);
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
 
         .btn-seguir-comprando i {
-            font-size: 1.2rem;
-            transition: var(--transition-fast);
-        }
-
-        .btn-seguir-comprando:hover i {
-            transform: translateX(-5px);
+            font-size: 1rem;
         }
 
         .carrito-tabla-container {
             overflow: hidden;
             border-radius: var(--border-radius-md);
-            box-shadow: var(--shadow-md);
-            margin-bottom: 2.5rem;
+            border: 1px solid var(--color-gray-200);
+            margin-bottom: 1.5rem;
         }
 
         .carrito-tabla {
             width: 100%;
             border-collapse: separate;
             border-spacing: 0;
-            background-color: var(--color-blanco);
+            background-color: var(--color-white);
         }
 
         .carrito-tabla th {
-            background: var(--gradient-primary);
-            color: var(--color-blanco);
-            padding: 1.2rem 1rem;
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: 0.75rem 1rem;
             text-align: left;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            position: relative;
-        }
-
-        .carrito-tabla th::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.3);
+            font-weight: 500;
+            font-size: 0.875rem;
         }
 
         .carrito-tabla tr {
@@ -232,17 +204,16 @@ if (session_status() === PHP_SESSION_NONE) {
         }
 
         .carrito-tabla tr:nth-child(even) {
-            background-color: rgba(255, 182, 193, 0.05);
+            background-color: var(--color-gray-50);
         }
 
         .carrito-tabla tr:hover {
-            background-color: rgba(255, 182, 193, 0.1);
-            transform: translateX(5px);
+            background-color: var(--color-gray-100);
         }
 
         .carrito-tabla td {
-            padding: 1.2rem 1rem;
-            border-bottom: 1px solid #f0f0f0;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--color-gray-200);
             vertical-align: middle;
         }
 
@@ -252,47 +223,43 @@ if (session_status() === PHP_SESSION_NONE) {
 
         .producto-imagen-container {
             position: relative;
-            width: 90px;
-            height: 90px;
+            width: 60px;
+            height: 60px;
             border-radius: var(--border-radius-sm);
             overflow: hidden;
             box-shadow: var(--shadow-sm);
+            border: 1px solid var(--color-gray-200);
         }
 
         .producto-imagen {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: var(--transition-medium);
-        }
-
-        .producto-imagen-container:hover .producto-imagen {
-            transform: scale(1.1);
+            transition: var(--transition-fast);
         }
 
         .producto-info {
             display: flex;
             flex-direction: column;
-            gap: 0.3rem;
+            gap: 0.25rem;
         }
 
         .producto-nombre {
-            font-weight: 600;
-            color: var(--color-naranja);
+            font-weight: 500;
+            color: var(--color-gray-800);
             text-decoration: none;
             transition: var(--transition-fast);
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             display: block;
         }
 
         .producto-nombre:hover {
-            color: var(--color-rosa);
-            transform: translateX(5px);
+            color: var(--color-primary);
         }
 
         .producto-codigo {
-            color: #777;
-            font-size: 0.85rem;
+            color: var(--color-gray-500);
+            font-size: 0.75rem;
         }
 
         .cantidad-control {
@@ -302,21 +269,20 @@ if (session_status() === PHP_SESSION_NONE) {
         }
 
         .cantidad-input {
-            width: 70px;
-            padding: 0.7rem;
+            width: 50px;
+            padding: 0.375rem;
             text-align: center;
-            border: 2px solid #e0e0e0;
+            border: 1px solid var(--color-gray-300);
             border-radius: var(--border-radius-sm);
-            font-size: 1rem;
+            font-size: 0.875rem;
             transition: var(--transition-fast);
-            background-color: var(--color-blanco);
-            font-weight: 500;
+            background-color: var(--color-white);
         }
 
         .cantidad-input:focus {
-            border-color: var(--color-rosa);
+            border-color: var(--color-primary);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.2);
+            box-shadow: 0 0 0 2px rgba(248, 113, 113, 0.2);
         }
 
         .btn-actualizar {
@@ -324,20 +290,19 @@ if (session_status() === PHP_SESSION_NONE) {
             border: none;
             cursor: pointer;
             transition: var(--transition-fast);
-            width: 40px;
-            height: 40px;
+            width: 28px;
+            height: 28px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background-color: #f0f0f0;
-            color: var(--color-gris);
+            background-color: var(--color-gray-100);
+            color: var(--color-gray-600);
         }
 
         .btn-actualizar:hover {
-            color: var(--color-blanco);
-            background-color: var(--color-verde);
-            transform: rotate(180deg);
+            color: var(--color-white);
+            background-color: var(--color-success);
         }
 
         .btn-eliminar {
@@ -345,141 +310,113 @@ if (session_status() === PHP_SESSION_NONE) {
             border: none;
             cursor: pointer;
             transition: var(--transition-fast);
-            width: 40px;
-            height: 40px;
+            width: 28px;
+            height: 28px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background-color: #f0f0f0;
-            color: var(--color-gris);
+            background-color: var(--color-gray-100);
+            color: var(--color-gray-600);
         }
 
         .btn-eliminar:hover {
-            color: var(--color-blanco);
-            background-color: var(--color-rojo);
-            transform: scale(1.1);
+            color: var(--color-white);
+            background-color: var(--color-danger);
         }
 
         .precio, .subtotal {
-            font-weight: 600;
-            color: var(--color-texto);
+            font-weight: 500;
+            color: var(--color-gray-800);
         }
 
         .subtotal {
-            color: var(--color-naranja);
-            font-size: 1.1rem;
+            color: var(--color-primary);
         }
 
         .carrito-footer {
-            padding: 0 2rem 2rem;
+            padding: 0 1.5rem 1.5rem;
         }
 
         .carrito-resumen {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .carrito-total-container {
-            background: var(--gradient-primary);
-            padding: 2rem;
-            border-radius: var(--border-radius-lg);
-            color: var(--color-blanco);
-            box-shadow: var(--shadow-md);
-            position: relative;
-            overflow: hidden;
+            background: var(--gradient-light);
+            padding: 1.25rem;
+            border-radius: var(--border-radius-md);
+            color: var(--color-gray-800);
+            border: 1px solid var(--color-gray-200);
         }
 
         .carrito-total-label {
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 500;
             margin-bottom: 0.5rem;
-            position: relative;
-            z-index: 1;
         }
 
         .carrito-total-precio {
-            font-size: 2.5rem;
-            font-weight: 700;
-            position: relative;
-            z-index: 1;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--color-primary);
         }
 
         .carrito-acciones {
             display: flex;
             justify-content: space-between;
             gap: 1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .btn-vaciar-carrito {
-            background: linear-gradient(45deg, var(--color-rojo), #e74c3c);
-            color: var(--color-blanco);
+            background: var(--color-gray-200);
+            color: var(--color-gray-700);
             border: none;
-            padding: 1rem 1.8rem;
-            border-radius: var(--border-radius-xl);
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--border-radius-md);
             text-decoration: none;
             transition: var(--transition-fast);
-            font-weight: 600;
+            font-weight: 500;
             display: flex;
             align-items: center;
-            gap: 0.8rem;
-            box-shadow: var(--shadow-md);
-            position: relative;
-            overflow: hidden;
+            gap: 0.5rem;
+            box-shadow: var(--shadow-sm);
         }
 
         .btn-vaciar-carrito:hover {
-            transform: scale(1.05);
-            box-shadow: var(--shadow-lg);
+            background: var(--color-gray-300);
+            color: var(--color-gray-800);
         }
 
         .btn-finalizar-compra {
-            background: var(--gradient-button);
-            color: var(--color-blanco);
+            background: linear-gradient(90deg, #ff6b6b, #ffa36b);
+            color: var(--color-white);
             border: none;
-            padding: 1.2rem 2.5rem;
-            font-size: 1.2rem;
-            border-radius: var(--border-radius-xl);
+            padding: 0.875rem 1.5rem;
+            font-size: 1rem;
+            border-radius: var(--border-radius-md);
             text-decoration: none;
             transition: var(--transition-fast);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.8rem;
+            gap: 0.5rem;
             width: 100%;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
+            font-weight: 500;
+            box-shadow: var(--shadow-sm);
         }
 
         .btn-finalizar-compra:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.3);
-            background: var(--gradient-button-hover);
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
 
         .btn-finalizar-compra i {
-            font-size: 1.2rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 1.5rem 0;
-            background-color: #ff6b6b;
-            color: white;
-            font-size: 0.9rem;
-            margin-top: 3rem;
-        }
-
-        footer p {
-            margin: 0;
+            font-size: 1rem;
         }
 
         /* Responsive */
@@ -489,15 +426,15 @@ if (session_status() === PHP_SESSION_NONE) {
             }
             
             .carrito-header {
-                padding: 1.5rem 1rem;
+                padding: 1.25rem 1rem;
             }
             
             .carrito-titulo {
-                font-size: 2rem;
+                font-size: 1.5rem;
             }
             
             .carrito-body, .carrito-footer {
-                padding: 1.5rem 1rem;
+                padding: 1.25rem 1rem;
             }
             
             .carrito-tabla-container {
@@ -514,20 +451,20 @@ if (session_status() === PHP_SESSION_NONE) {
             }
             
             .carrito-total-precio {
-                font-size: 2rem;
+                font-size: 1.5rem;
             }
         }
 
         /* Estilos para productos en el carrito */
         .producto-row {
             opacity: 0;
-            animation: fadeInUp 0.5s ease-out forwards;
+            animation: fadeInUp 0.3s ease-out forwards;
         }
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(10px);
             }
             to {
                 opacity: 1;
@@ -536,11 +473,11 @@ if (session_status() === PHP_SESSION_NONE) {
         }
 
         /* Aplicar animación con retraso a cada fila */
-        .producto-row:nth-child(1) { animation-delay: 0.1s; }
-        .producto-row:nth-child(2) { animation-delay: 0.2s; }
-        .producto-row:nth-child(3) { animation-delay: 0.3s; }
-        .producto-row:nth-child(4) { animation-delay: 0.4s; }
-        .producto-row:nth-child(5) { animation-delay: 0.5s; }
+        .producto-row:nth-child(1) { animation-delay: 0.05s; }
+        .producto-row:nth-child(2) { animation-delay: 0.1s; }
+        .producto-row:nth-child(3) { animation-delay: 0.15s; }
+        .producto-row:nth-child(4) { animation-delay: 0.2s; }
+        .producto-row:nth-child(5) { animation-delay: 0.25s; }
     </style>
 </head>
 <body>
@@ -602,7 +539,7 @@ if (isset($_SESSION['usuario'])) {
                                     <?php foreach ($carrito as $item): ?>
                                         <tr class="producto-row">
                                             <td>
-                                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                                <div style="display: flex; align-items: center; gap: 0.75rem;">
                                                     <div class="producto-imagen-container">
                                                         <?php if (!empty($item['imagen'])): ?>
                                                             <img src="<?php echo htmlspecialchars($item['imagen']); ?>" alt="<?php echo htmlspecialchars($item['nombre']); ?>" class="producto-imagen">
@@ -667,9 +604,7 @@ if (isset($_SESSION['usuario'])) {
         </div>
     </div>
 
-    <footer>
-        <p>&copy; <?php echo date('Y'); ?> ZonaX. Todos los derechos reservados.</p>
-    </footer>
+    <?php include __DIR__ . '/footer.php'; ?>
 </div>
 
 </body>

@@ -17,6 +17,7 @@ switch ($action) {
     case 'llistar-productes':
         include __DIR__.'/resource_productos.php';
         break;
+    
     // Añadir en index.php dentro del switch
     case 'producto':
         include __DIR__.'/resource_producto.php';
@@ -26,11 +27,17 @@ switch ($action) {
     case 'carrito':
         include __DIR__.'/controller/carrito_controller.php';
         break;
+    
     // New case for category handling
     case 'categoria':
         include __DIR__.'/categoria.php'; // Redirige a la lógica del controlador
         break;
-        
+
+    // Nueva página de categorías
+    case 'categorias':
+        include __DIR__.'/resource_categorias.php';
+        break;
+
     case 'portada':
         include __DIR__.'/resource_portada.php';
         break;
@@ -52,7 +59,10 @@ switch ($action) {
         include __DIR__.'/controller/recuperar_password.php';
         break;
 
-
+    // Add a new case for featured products in the switch statement
+    case 'productos-destacados':
+        include __DIR__.'/controller/productos_destacados_controller.php';
+        break;
 
     case 'salir':
         session_destroy();

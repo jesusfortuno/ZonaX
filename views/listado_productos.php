@@ -594,5 +594,6 @@ if (isset($_SESSION['usuario'])) {
             }
         }
     </script>
+<?php include __DIR__ . '/footer.php'; ?>
 </body>
 </html>
