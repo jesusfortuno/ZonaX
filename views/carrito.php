@@ -83,7 +83,6 @@ if (session_status() === PHP_SESSION_NONE) {
             overflow: hidden;
             position: relative;
             z-index: 1;
-            animation: fadeInUp 0.8s ease-out forwards;
         }
 
         .carrito-header {
@@ -92,18 +91,6 @@ if (session_status() === PHP_SESSION_NONE) {
             text-align: center;
             position: relative;
             overflow: hidden;
-        }
-
-        .carrito-header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 60%);
-            animation: pulse 15s infinite linear;
-            z-index: -1;
         }
 
         .carrito-titulo {
@@ -134,33 +121,16 @@ if (session_status() === PHP_SESSION_NONE) {
             border-left: 5px solid var(--color-verde);
             position: relative;
             overflow: hidden;
-            animation: slideInRight 0.5s ease-out forwards;
-        }
-
-        .mensaje::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(40, 167, 69, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
-            z-index: -1;
         }
 
         .mensaje i {
             font-size: 1.2rem;
             margin-right: 0.5rem;
-            animation: bounce 2s infinite;
         }
 
         .error {
             color: var(--color-rojo);
             border-left: 5px solid var(--color-rojo);
-        }
-
-        .error::before {
-            background: linear-gradient(45deg, rgba(220, 53, 69, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
         }
 
         .carrito-vacio {
@@ -172,25 +142,11 @@ if (session_status() === PHP_SESSION_NONE) {
             overflow: hidden;
         }
 
-        .carrito-vacio::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
-            z-index: 0;
-        }
-
         .carrito-vacio-icon {
             font-size: 5rem;
             color: rgba(255, 255, 255, 0.8);
             margin-bottom: 1.5rem;
             display: inline-block;
-            animation: float 3s ease-in-out infinite;
-            position: relative;
-            z-index: 1;
         }
 
         .carrito-vacio-text {
@@ -220,25 +176,10 @@ if (session_status() === PHP_SESSION_NONE) {
             z-index: 1;
         }
 
-        .btn-seguir-comprando::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: var(--transition-fast);
-            z-index: -1;
-        }
-
-        .btn-seguir-comprando:hover::before {
-            left: 100%;
-        }
-
         .btn-seguir-comprando:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
+            background: var(--gradient-button-hover);
         }
 
         .btn-seguir-comprando i {
@@ -327,22 +268,6 @@ if (session_status() === PHP_SESSION_NONE) {
 
         .producto-imagen-container:hover .producto-imagen {
             transform: scale(1.1);
-        }
-
-        .producto-imagen-container::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(255, 105, 180, 0.2), rgba(255, 165, 0, 0.2));
-            opacity: 0;
-            transition: var(--transition-fast);
-        }
-
-        .producto-imagen-container:hover::after {
-            opacity: 1;
         }
 
         .producto-info {
@@ -464,18 +389,6 @@ if (session_status() === PHP_SESSION_NONE) {
             box-shadow: var(--shadow-md);
             position: relative;
             overflow: hidden;
-            animation: pulse 2s infinite alternate;
-        }
-
-        .carrito-total-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
-            z-index: 0;
         }
 
         .carrito-total-label {
@@ -518,22 +431,6 @@ if (session_status() === PHP_SESSION_NONE) {
             overflow: hidden;
         }
 
-        .btn-vaciar-carrito::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: var(--transition-fast);
-            z-index: -1;
-        }
-
-        .btn-vaciar-carrito:hover::before {
-            left: 100%;
-        }
-
         .btn-vaciar-carrito:hover {
             transform: scale(1.05);
             box-shadow: var(--shadow-lg);
@@ -562,30 +459,14 @@ if (session_status() === PHP_SESSION_NONE) {
             z-index: 1;
         }
 
-        .btn-finalizar-compra::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: var(--transition-fast);
-            z-index: -1;
-        }
-
-        .btn-finalizar-compra:hover::before {
-            left: 100%;
-        }
-
         .btn-finalizar-compra:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(255, 105, 180, 0.3);
+            background: var(--gradient-button-hover);
         }
 
         .btn-finalizar-compra i {
             font-size: 1.2rem;
-            animation: pulse 2s infinite;
         }
 
         footer {
@@ -599,65 +480,6 @@ if (session_status() === PHP_SESSION_NONE) {
 
         footer p {
             margin: 0;
-        }
-
-        /* Animaciones */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-            100% {
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-5px);
-            }
-            60% {
-                transform: translateY(-2px);
-            }
         }
 
         /* Responsive */
@@ -698,17 +520,27 @@ if (session_status() === PHP_SESSION_NONE) {
 
         /* Estilos para productos en el carrito */
         .producto-row {
-            animation: fadeInUp 0.5s ease-out forwards;
-            animation-delay: calc(var(--animation-order) * 0.1s);
             opacity: 0;
+            animation: fadeInUp 0.5s ease-out forwards;
         }
 
-        /* Efecto de neón para botones importantes */
-        .neon-effect {
-            box-shadow: 0 0 10px rgba(255, 105, 180, 0.5), 
-                        0 0 20px rgba(255, 105, 180, 0.3), 
-                        0 0 30px rgba(255, 105, 180, 0.1);
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
+        /* Aplicar animación con retraso a cada fila */
+        .producto-row:nth-child(1) { animation-delay: 0.1s; }
+        .producto-row:nth-child(2) { animation-delay: 0.2s; }
+        .producto-row:nth-child(3) { animation-delay: 0.3s; }
+        .producto-row:nth-child(4) { animation-delay: 0.4s; }
+        .producto-row:nth-child(5) { animation-delay: 0.5s; }
     </style>
 </head>
 <body>
@@ -767,8 +599,8 @@ if (isset($_SESSION['usuario'])) {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $i = 0; foreach ($carrito as $item): $i++; ?>
-                                        <tr class="producto-row" style="--animation-order: <?php echo $i; ?>">
+                                    <?php foreach ($carrito as $item): ?>
+                                        <tr class="producto-row">
                                             <td>
                                                 <div style="display: flex; align-items: center; gap: 1rem;">
                                                     <div class="producto-imagen-container">
@@ -825,7 +657,7 @@ if (isset($_SESSION['usuario'])) {
                             </a>
                         </div>
                         
-                        <a href="#" class="btn-finalizar-compra neon-effect">
+                        <a href="#" class="btn-finalizar-compra">
                             <i class="fas fa-check"></i> Finalizar compra
                         </a>
                     </div>
