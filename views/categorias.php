@@ -167,23 +167,26 @@ ini_set('error_log', __DIR__ . '/../error.log');
             line-height: 1.6;
         }
 
-        .categorias-grid {
+        .categories-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .categoria-card {
-            background: white;
-            border-radius: 15px;
+            background: var(--color-white);
+            border-radius: 10px;
             overflow: hidden;
             box-shadow: var(--shadow-md);
             transition: var(--transition-fast);
-            position: relative;
-            height: 300px;
+            text-decoration: none;
+            color: var(--color-gray-800);
             display: flex;
             flex-direction: column;
+            height: 100%;
+            border: 1px solid var(--color-gray-200);
         }
 
         .categoria-card:hover {
@@ -191,85 +194,102 @@ ini_set('error_log', __DIR__ . '/../error.log');
             box-shadow: var(--shadow-lg);
         }
 
-        .categoria-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%);
-            z-index: 1;
+        .categoria-image-container {
+            position: relative;
+            padding-top: 75%; /* 4:3 Aspect Ratio */
+            overflow: hidden;
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
         }
 
         .categoria-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
             position: absolute;
             top: 0;
             left: 0;
-        }
-
-        .categoria-content {
-            position: relative;
-            z-index: 2;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
             padding: 1.5rem;
-            margin-top: auto;
-            color: white;
+            transition: transform 0.5s ease;
         }
 
-        .categoria-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        .categoria-card:hover .categoria-img {
+            transform: scale(1.1);
         }
 
-        .categoria-description {
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            opacity: 0.9;
-            line-height: 1.5;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .categoria-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--color-white);
-            color: var(--color-primary);
-            border: none;
-            padding: 0.6rem 1.2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: var(--transition-fast);
-            text-decoration: none;
-        }
-
-        .categoria-btn:hover {
-            background: var(--color-primary);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        .categoria-count {
+        .categoria-tag {
             position: absolute;
             top: 1rem;
             right: 1rem;
-            background: rgba(255, 255, 255, 0.9);
-            color: var(--color-gray-800);
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding: 0.3rem 0.8rem;
+            padding: 0.35rem 1rem;
             border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             z-index: 2;
+        }
+
+        .categoria-tag.popular {
+            background-color: #ff6b6b;
+            color: white;
+        }
+
+        .categoria-tag.destacado {
+            background-color: #ffa36b;
+            color: white;
+        }
+
+        .categoria-tag.parejas {
+            background-color: #ffd56b;
+            color: var(--color-gray-800);
+        }
+
+        .categoria-tag.esencial {
+            background-color: #ff9eb6;
+            color: white;
+        }
+
+        .categoria-tag.sensual {
+            background-color: #ffa36b;
+            color: white;
+        }
+
+        .categoria-tag.bdsm {
+            background-color: #333;
+            color: white;
+        }
+
+        .categoria-info {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+            position: relative;
+            background: linear-gradient(135deg, #ffffff 0%, #fff5f8 100%);
+        }
+
+        .categoria-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--color-gray-800);
+        }
+
+        .categoria-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-top: auto;
+            transition: var(--transition-fast);
+        }
+
+        .categoria-card:hover .categoria-link {
+            color: var(--color-primary-dark);
+            gap: 0.75rem;
         }
 
         .empty-message {
@@ -326,13 +346,9 @@ ini_set('error_log', __DIR__ . '/../error.log');
                 font-size: 4rem;
             }
             
-            .categorias-grid {
+            .categories-grid {
                 grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
                 gap: 1.5rem;
-            }
-            
-            .categoria-card {
-                height: 250px;
             }
         }
 
@@ -345,7 +361,7 @@ ini_set('error_log', __DIR__ . '/../error.log');
                 font-size: 3rem;
             }
             
-            .categorias-grid {
+            .categories-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -361,12 +377,12 @@ ini_set('error_log', __DIR__ . '/../error.log');
             animation-fill-mode: both;
         }
 
-        .categorias-grid .categoria-card:nth-child(1) { animation-delay: 0.1s; }
-        .categorias-grid .categoria-card:nth-child(2) { animation-delay: 0.2s; }
-        .categorias-grid .categoria-card:nth-child(3) { animation-delay: 0.3s; }
-        .categorias-grid .categoria-card:nth-child(4) { animation-delay: 0.4s; }
-        .categorias-grid .categoria-card:nth-child(5) { animation-delay: 0.5s; }
-        .categorias-grid .categoria-card:nth-child(6) { animation-delay: 0.6s; }
+        .categories-grid .categoria-card:nth-child(1) { animation-delay: 0.1s; }
+        .categories-grid .categoria-card:nth-child(2) { animation-delay: 0.2s; }
+        .categories-grid .categoria-card:nth-child(3) { animation-delay: 0.3s; }
+        .categories-grid .categoria-card:nth-child(4) { animation-delay: 0.4s; }
+        .categories-grid .categoria-card:nth-child(5) { animation-delay: 0.5s; }
+        .categories-grid .categoria-card:nth-child(6) { animation-delay: 0.6s; }
     </style>
 </head>
 <body>
@@ -401,39 +417,80 @@ ini_set('error_log', __DIR__ . '/../error.log');
         </div>
 
         <?php if (!empty($categorias)): ?>
-            <div class="categorias-grid">
-                <?php foreach ($categorias as $categoria): ?>
-                    <div class="categoria-card">
-                        <?php if (!empty($categoria['imagen'])): ?>
-                            <img src="<?= htmlspecialchars($categoria['imagen']); ?>" alt="<?= htmlspecialchars($categoria['nombre_categoria']); ?>" class="categoria-img">
-                        <?php else: ?>
-                            <img src="img/categoria-default.jpg" alt="<?= htmlspecialchars($categoria['nombre_categoria']); ?>" class="categoria-img">
-                        <?php endif; ?>
-                        
-                        <?php if (isset($categoria['total_productos'])): ?>
-                            <div class="categoria-count"><?= $categoria['total_productos']; ?> productos</div>
-                        <?php endif; ?>
-                        
-                        <div class="categoria-content">
-                            <h2 class="categoria-title"><?= htmlspecialchars($categoria['nombre_categoria']); ?></h2>
-                            <p class="categoria-description"><?= htmlspecialchars($categoria['descripcion'] ?? 'Explora nuestra selección de productos en esta categoría.'); ?></p>
-                            <a href="?action=categoria&categoria=<?= $categoria['id']; ?>" class="categoria-btn">
-                                Ver productos <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
+    <div class="categories-grid">
+        <?php foreach ($categorias as $categoria): ?>
+            <div class="categoria-card">
+                <?php 
+                    // Determine tag class and text based on category
+                    $tagClass = 'popular';
+                    $tagText = 'Popular';
+                    
+                    // Asignar imagen y etiqueta según el ID de categoría
+                    $imagePath = 'img/categoria-default.jpg';
+                    
+                    switch($categoria['id']) {
+                        case 1: // Vibrador Mujer
+                            $imagePath = 'img/vibrador-mujer.png';
+                            $tagClass = 'popular'; 
+                            $tagText = 'Popular'; 
+                            break;
+                        case 2: // Vibrador Hombre
+                            $imagePath = 'img/vibrador-hombre.png';
+                            $tagClass = 'destacado'; 
+                            $tagText = 'Destacado'; 
+                            break;
+                        case 3: // Juguetes para Parejas
+                            $imagePath = 'img/jueguete-pareja.png';
+                            $tagClass = 'parejas'; 
+                            $tagText = 'Parejas'; 
+                            break;
+                        case 4: // Lubricantes
+                            $imagePath = 'img/lubricantes.png';
+                            $tagClass = 'esencial'; 
+                            $tagText = 'Esencial'; 
+                            break;
+                        case 5: // Preservativos
+                            $imagePath = 'img/preservativos.png';
+                            $tagClass = 'popular'; 
+                            $tagText = 'Popular'; 
+                            break;
+                        case 6: // Lencería
+                            $imagePath = 'img/lenceria.png';
+                            $tagClass = 'sensual'; 
+                            $tagText = 'Sensual'; 
+                            break;
+                        case 7: // BDSM
+                            $imagePath = 'img/bdsm.png';
+                            $tagClass = 'bdsm'; 
+                            $tagText = 'BDSM'; 
+                            break;
+                    }
+                ?>
+                
+                <div class="categoria-image-container">
+                    <img src="<?= $imagePath; ?>" alt="<?= htmlspecialchars($categoria['nombre_categoria']); ?>" class="categoria-img">
+                    <span class="categoria-tag <?= $tagClass ?>"><?= $tagText ?></span>
+                </div>
+                
+                <div class="categoria-info">
+                    <h3 class="categoria-title"><?= strtoupper(htmlspecialchars($categoria['nombre_categoria'])); ?></h3>
+                    <a href="?action=categoria&categoria=<?= $categoria['id']; ?>" class="categoria-link">
+                        Ver productos <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
             </div>
-        <?php else: ?>
-            <div class="empty-message">
-                <i class="fas fa-folder-open"></i>
-                <h3>No hay categorías disponibles</h3>
-                <p>Actualmente no hay categorías disponibles. Por favor, vuelve más tarde.</p>
-                <a href="?action=portada">
-                    <i class="fas fa-home"></i> Volver al inicio
-                </a>
-            </div>
-        <?php endif; ?>
+        <?php endforeach; ?>
+    </div>
+<?php else: ?>
+    <div class="empty-message">
+        <i class="fas fa-folder-open"></i>
+        <h3>No hay categorías disponibles</h3>
+        <p>Actualmente no hay categorías disponibles. Por favor, vuelve más tarde.</p>
+        <a href="?action=portada">
+            <i class="fas fa-home"></i> Volver al inicio
+        </a>
+    </div>
+<?php endif; ?>
     </div>
 
     <?php include __DIR__ . '/footer.php'; ?>

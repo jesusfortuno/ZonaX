@@ -431,3 +431,312 @@ Stack trace:
 [09-May-2025 16:28:12 Europe/Berlin] Número de productos destacados encontrados: 3
 [09-May-2025 16:29:15 Europe/Berlin] ID de categoría: 2
 [09-May-2025 16:29:15 Europe/Berlin] Número de productos obtenidos: 1
+[13-May-2025 15:51:33 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 15:51:33 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 15:51:33 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 15:52:01 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 15:52:01 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 15:52:01 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 15:52:26 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 15:52:26 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 15:52:26 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 15:52:35 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 15:52:35 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 15:52:35 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 15:52:51 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 15:52:51 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 15:52:51 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 15:52:52 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 15:52:52 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 15:52:52 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:00:56 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:00:56 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:00:56 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:00:58 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:00:58 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:00:58 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:01:01 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:01:01 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:01:01 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:01:01 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:01:01 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:01:01 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:01:13 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:01:13 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:01:13 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:01:21 Europe/Berlin] ID de categoría: 3
+[13-May-2025 16:01:21 Europe/Berlin] Número de productos obtenidos: 1
+[13-May-2025 16:03:13 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:03:13 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:03:13 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:08:47 Europe/Berlin] PHP Fatal error:  Cannot redeclare actualizarPassword() (previously declared in C:\xampp2\htdocs\ZonaX\controller\perfil_controller.php:182) in C:\xampp2\htdocs\ZonaX\model\usuarios.php on line 58
+[13-May-2025 16:08:51 Europe/Berlin] PHP Fatal error:  Cannot redeclare actualizarPassword() (previously declared in C:\xampp2\htdocs\ZonaX\controller\perfil_controller.php:182) in C:\xampp2\htdocs\ZonaX\model\usuarios.php on line 58
+[13-May-2025 16:08:56 Europe/Berlin] PHP Fatal error:  Cannot redeclare actualizarPassword() (previously declared in C:\xampp2\htdocs\ZonaX\controller\perfil_controller.php:182) in C:\xampp2\htdocs\ZonaX\model\usuarios.php on line 58
+[13-May-2025 16:11:50 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:11:50 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:11:50 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:17:21 Europe/Berlin] Búsqueda de usuario - Email: victor
+[13-May-2025 16:17:21 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:17:48 Europe/Berlin] Búsqueda de usuario - Email: victor
+[13-May-2025 16:17:48 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:17:48 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp2\htdocs\ZonaX\controller\perfil_controller.php on line 44
+[13-May-2025 16:17:48 Europe/Berlin] Búsqueda de usuario - Email: victor@vir.com
+[13-May-2025 16:17:48 Europe/Berlin] Usuario encontrado - Nombre: victor, Rol: usuario
+[13-May-2025 16:17:53 Europe/Berlin] Búsqueda de usuario - Email: victor
+[13-May-2025 16:17:53 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:17:53 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp2\htdocs\ZonaX\controller\perfil_controller.php on line 44
+[13-May-2025 16:17:53 Europe/Berlin] Búsqueda de usuario - Email: victor@vir.com
+[13-May-2025 16:17:53 Europe/Berlin] Usuario encontrado - Nombre: victor, Rol: usuario
+[13-May-2025 16:18:31 Europe/Berlin] Búsqueda de usuario - Email: victor54
+[13-May-2025 16:18:31 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:18:31 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp2\htdocs\ZonaX\controller\perfil_controller.php on line 44
+[13-May-2025 16:18:31 Europe/Berlin] Búsqueda de usuario - Email: victor@vir.com
+[13-May-2025 16:18:31 Europe/Berlin] Usuario encontrado - Nombre: victor, Rol: usuario
+[13-May-2025 16:18:51 Europe/Berlin] Búsqueda de usuario - Email: victor54
+[13-May-2025 16:18:51 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:18:57 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:18:57 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:18:57 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:19:00 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:19:00 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:19:00 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:19:01 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:19:01 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:19:01 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:19:04 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:19:04 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:19:04 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:19:08 Europe/Berlin] Búsqueda de usuario - Email: victor54
+[13-May-2025 16:19:08 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:19:20 Europe/Berlin] Búsqueda de usuario - Email: victor54
+[13-May-2025 16:19:20 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:19:26 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:19:26 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:19:26 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:19:29 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:19:29 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:19:29 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:19:35 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:19:35 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:19:35 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:19:37 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:19:37 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:19:37 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:19:38 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:19:38 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:19:38 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:20:03 Europe/Berlin] Búsqueda de usuario - Email: victor54
+[13-May-2025 16:20:03 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:24:03 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:24:03 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:24:03 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:24:10 Europe/Berlin] Búsqueda de usuario - Email: victor54
+[13-May-2025 16:24:10 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:24:10 Europe/Berlin] Búsqueda de usuario - Nombre: victor54
+[13-May-2025 16:24:10 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:24:10 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:24:10 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:24:10 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:24:12 Europe/Berlin] Búsqueda de usuario - Email: victor54
+[13-May-2025 16:24:12 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:24:12 Europe/Berlin] Búsqueda de usuario - Nombre: victor54
+[13-May-2025 16:24:12 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:24:12 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:24:12 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:24:12 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:24:13 Europe/Berlin] Búsqueda de usuario - Email: victor54
+[13-May-2025 16:24:13 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:24:13 Europe/Berlin] Búsqueda de usuario - Nombre: victor54
+[13-May-2025 16:24:13 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:24:13 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:24:13 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:24:13 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:24:13 Europe/Berlin] Búsqueda de usuario - Email: victor54
+[13-May-2025 16:24:13 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:24:13 Europe/Berlin] Búsqueda de usuario - Nombre: victor54
+[13-May-2025 16:24:13 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:24:13 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:24:13 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:24:13 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:24:13 Europe/Berlin] Búsqueda de usuario - Email: victor54
+[13-May-2025 16:24:13 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:24:13 Europe/Berlin] Búsqueda de usuario - Nombre: victor54
+[13-May-2025 16:24:13 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:24:13 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:24:13 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:24:13 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:24:13 Europe/Berlin] Búsqueda de usuario - Email: victor54
+[13-May-2025 16:24:13 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:24:13 Europe/Berlin] Búsqueda de usuario - Nombre: victor54
+[13-May-2025 16:24:13 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:24:13 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:24:13 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:24:13 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:24:16 Europe/Berlin] Búsqueda de usuario - Email: victor54
+[13-May-2025 16:24:16 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:24:16 Europe/Berlin] Búsqueda de usuario - Nombre: victor54
+[13-May-2025 16:24:16 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:24:16 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:24:16 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:24:16 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:24:18 Europe/Berlin] Búsqueda de usuario - Email: victor54
+[13-May-2025 16:24:18 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:24:18 Europe/Berlin] Búsqueda de usuario - Nombre: victor54
+[13-May-2025 16:24:18 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:24:18 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:24:18 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:24:18 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:24:18 Europe/Berlin] Búsqueda de usuario - Email: victor54
+[13-May-2025 16:24:18 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:24:18 Europe/Berlin] Búsqueda de usuario - Nombre: victor54
+[13-May-2025 16:24:18 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:24:18 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:24:18 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:24:18 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:24:18 Europe/Berlin] Búsqueda de usuario - Email: victor54
+[13-May-2025 16:24:18 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:24:18 Europe/Berlin] Búsqueda de usuario - Nombre: victor54
+[13-May-2025 16:24:18 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:24:18 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:24:18 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:24:18 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:24:18 Europe/Berlin] Búsqueda de usuario - Email: victor54
+[13-May-2025 16:24:18 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:24:18 Europe/Berlin] Búsqueda de usuario - Nombre: victor54
+[13-May-2025 16:24:18 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:24:18 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:24:18 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:24:18 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:24:19 Europe/Berlin] Búsqueda de usuario - Email: victor54
+[13-May-2025 16:24:19 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:24:19 Europe/Berlin] Búsqueda de usuario - Nombre: victor54
+[13-May-2025 16:24:19 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:24:19 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:24:19 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:24:19 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:24:19 Europe/Berlin] Búsqueda de usuario - Email: victor54
+[13-May-2025 16:24:19 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:24:19 Europe/Berlin] Búsqueda de usuario - Nombre: victor54
+[13-May-2025 16:24:19 Europe/Berlin] Usuario no encontrado
+[13-May-2025 16:24:19 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:24:19 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:24:19 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:26:56 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:26:56 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:26:56 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:26:58 Europe/Berlin] PHP Fatal error:  Cannot redeclare actualizarPerfilUsuario() (previously declared in C:\xampp2\htdocs\ZonaX\model\usuarios.php:138) in C:\xampp2\htdocs\ZonaX\controller\perfil_controller.php on line 98
+[13-May-2025 16:27:08 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:27:08 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:27:08 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:27:47 Europe/Berlin] PHP Fatal error:  Cannot redeclare actualizarPerfilUsuario() (previously declared in C:\xampp2\htdocs\ZonaX\model\usuarios.php:138) in C:\xampp2\htdocs\ZonaX\controller\perfil_controller.php on line 98
+[13-May-2025 16:28:03 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:28:03 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:28:03 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:32:03 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:32:03 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:32:03 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:32:04 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:32:04 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:32:04 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:32:05 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:32:05 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:32:05 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:32:06 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:32:06 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:32:06 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:32:06 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:32:06 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:32:06 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:32:06 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:32:06 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:32:06 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:34:42 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:34:42 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:34:42 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:34:44 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:34:44 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:34:44 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:34:45 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:34:45 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:34:45 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:34:45 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:34:45 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:34:45 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:34:47 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:34:47 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:34:47 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:34:48 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:34:48 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:34:48 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:44:41 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:44:41 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:44:41 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:44:43 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:44:43 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:44:43 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:44:44 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:44:44 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:44:44 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:44:45 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:44:45 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:44:45 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:44:45 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:44:45 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:44:45 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:44:45 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:44:45 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:44:45 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:45:12 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:45:12 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:45:12 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:45:13 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:45:13 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:45:13 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:45:13 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:45:13 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:45:13 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:45:13 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:45:13 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:45:13 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:45:14 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:45:14 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:45:14 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:45:14 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:45:14 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:45:14 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:45:14 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:45:14 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:45:14 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:45:14 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:45:14 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:45:14 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:45:15 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:45:15 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:45:15 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:45:15 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:45:15 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:45:15 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:45:15 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:45:15 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:45:15 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:45:15 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:45:15 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:45:15 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:45:15 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:45:15 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:45:15 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:45:16 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:45:16 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:45:16 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:45:16 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:45:16 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:45:16 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:45:16 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:45:16 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:45:16 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:45:16 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:45:16 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:45:16 Europe/Berlin] Número de productos destacados encontrados: 3
+[13-May-2025 16:45:17 Europe/Berlin] Número de productos destacados obtenidos: 3
+[13-May-2025 16:45:17 Europe/Berlin] Controlador de productos destacados ejecutado
+[13-May-2025 16:45:17 Europe/Berlin] Número de productos destacados encontrados: 3
