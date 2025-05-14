@@ -3,9 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro - TDIW</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>Registro - ZonaX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --color-primary: #ff6b6b;
+            --color-primary-light: #fca5a5;
+            --color-primary-dark: #ef4444;
+            --color-secondary: #fb923c;
+            --color-secondary-light: #fdba74;
+            --color-accent: #fbbf24;
+            --color-white: #ffffff;
+            --color-gray-50: #f9fafb;
+            --color-gray-100: #f3f4f6;
+            --color-gray-200: #e5e7eb;
+            --color-gray-300: #d1d5db;
+            --color-gray-400: #9ca3af;
+            --color-gray-500: #6b7280;
+            --color-gray-600: #4b5563;
+            --color-gray-700: #374151;
+            --color-gray-800: #1f2937;
+            --color-gray-900: #111827;
+            --gradient-main: linear-gradient(90deg, #ff6b6b, #ffa36b);
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.05);
+            --border-radius-sm: 0.375rem;
+            --border-radius-md: 0.5rem;
+            --border-radius-lg: 0.75rem;
+            --border-radius-xl: 1rem;
+            --transition-fast: all 0.3s ease;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -17,73 +47,233 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            background-color: #f5f5f5;
-            padding: 2rem;
-            align-items: center;
+            background: linear-gradient(135deg, #fff5f7 0%, #fff9f0 100%);
         }
 
-        h1 {
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            padding: 2rem;
+        }
+
+        .login-wrapper {
+            display: flex;
+            width: 100%;
+            max-width: 1000px;
+            background-color: var(--color-white);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        .login-image {
+            flex: 1;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('img/login-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--color-white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .login-image h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .login-image p {
+            font-size: 1.1rem;
+            max-width: 400px;
+            margin-bottom: 2rem;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .login-form-container {
+            flex: 1;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .login-logo {
             text-align: center;
             margin-bottom: 2rem;
-            color: #333;
         }
 
-        form {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 500px;
+        .login-logo h2 {
+            color: var(--color-gray-800);
+            font-weight: 700;
+            font-size: 2rem;
+            letter-spacing: 1px;
         }
 
-        label {
+        .login-logo span {
+            color: var(--color-primary);
+        }
+
+        .login-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--color-gray-800);
+            font-weight: 600;
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-label {
             display: block;
             margin-bottom: 0.5rem;
-            color: #333;
+            color: var(--color-gray-700);
+            font-weight: 500;
+            font-size: 0.95rem;
         }
 
-        input, select {
+        .form-input {
             width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            padding: 0.9rem 1rem 0.9rem 2.8rem;
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--border-radius-md);
             font-size: 1rem;
-            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            background-color: var(--color-gray-50);
         }
 
-        button {
+        .form-input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+            background-color: var(--color-white);
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 0.9rem 1rem 0.9rem 2.8rem;
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--border-radius-md);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: var(--color-gray-50);
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+        }
+
+        .form-select:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+            background-color: var(--color-white);
+        }
+
+        .form-icon {
+            position: absolute;
+            left: 1rem;
+            top: 2.4rem;
+            color: var(--color-primary);
+        }
+
+        .form-button {
             width: 100%;
             padding: 1rem;
-            background-color: #333;
-            color: white;
+            background: var(--gradient-main);
+            color: var(--color-white);
             border: none;
-            border-radius: 4px;
+            border-radius: var(--border-radius-md);
             font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(255, 107, 107, 0.2);
         }
 
-        button:hover {
-            background-color: #444;
+        .form-button:hover {
+            background: linear-gradient(90deg, #ff5c5c, #ff9559);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .form-links {
+            text-align: center;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--color-gray-200);
+        }
+
+        .form-links a {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            display: inline-block;
+            margin-bottom: 0.75rem;
+        }
+
+        .form-links a:hover {
+            color: var(--color-primary-dark);
         }
 
         .error-message {
-            color: red;
-            margin-bottom: 1rem;
+            color: var(--color-primary-dark);
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
         }
 
-        p {
+        .general-error {
+            color: var(--color-primary-dark);
             text-align: center;
+            margin-bottom: 1.5rem;
+            background-color: rgba(239, 68, 68, 0.1);
+            padding: 0.8rem;
+            border-radius: var(--border-radius-md);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
 
-        a {
-            color: #333;
-            text-decoration: none;
+        .footer {
+            background: var(--gradient-main);
+            color: var(--color-white);
+            padding: 1.2rem;
+            text-align: center;
+            font-size: 0.9rem;
         }
 
-        a:hover {
-            text-decoration: underline;
+        @media (max-width: 992px) {
+            .login-wrapper {
+                flex-direction: column;
+                max-width: 500px;
+            }
+            
+            .login-image {
+                display: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .login-form-container {
+                padding: 2rem 1.5rem;
+            }
+            
+            .login-title {
+                font-size: 1.5rem;
+            }
         }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -108,41 +298,83 @@
     </script>
 </head>
 <body>
-    <h1>Registro de Usuario</h1>
-    
-    <form method="post" action="?action=registre-session">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
-        <span class="error-message"><?= $errors['nombre'] ?? '' ?></span>
+    <div class="login-container">
+        <div class="login-wrapper">
+            <div class="login-image">
+                <h2>Bienvenido a ZonaX</h2>
+                <p>Tu destino para productos de calidad con los mejores precios y envío rápido.</p>
+            </div>
+            
+            <div class="login-form-container">
+                <div class="login-logo">
+                    <h2>Zona<span>X</span></h2>
+                </div>
+                
+                <h1 class="login-title">Registro</h1>
+                
+                <?php if (isset($errors['general'])): ?>
+                    <div class="general-error">
+                        <i class="fas fa-exclamation-circle"></i> <?= htmlspecialchars($errors['general']) ?>
+                    </div>
+                <?php endif; ?>
 
-        <label for="email">Correo electrónico:</label>
-        <input type="email" id="email" name="email" required>
-        <span id="email-error" class="error-message"><?= $errors['email'] ?? '' ?></span>
+                <form method="post" action="?action=registre-session">
+                    <div class="form-group">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <i class="fas fa-user form-icon"></i>
+                        <input type="text" id="nombre" name="nombre" class="form-input" placeholder="Ingresa tu nombre" required>
+                        <?php if (isset($errors['nombre'])): ?>
+                            <span class="error-message"><?= htmlspecialchars($errors['nombre']) ?></span>
+                        <?php endif; ?>
+                    </div>
 
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" name="password" required>
-        <span class="error-message"><?= $errors['password'] ?? '' ?></span>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Correo electrónico</label>
+                        <i class="fas fa-envelope form-icon"></i>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="Ingresa tu correo" required>
+                        <span id="email-error" class="error-message"><?= isset($errors['email']) ? htmlspecialchars($errors['email']) : '' ?></span>
+                    </div>
 
-        <label for="pregunta_seguridad">Pregunta de seguridad:</label>
-        <select name="pregunta_seguridad" id="pregunta_seguridad" required>
-            <option value="">Seleccione una pregunta</option>
-            <option value="mascota">¿Cuál fue el nombre de tu primera mascota?</option>
-            <option value="ciudad">¿En qué ciudad naciste?</option>
-            <option value="escuela">¿Cuál fue tu primera escuela?</option>
-        </select>
+                    <div class="form-group">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <i class="fas fa-lock form-icon"></i>
+                        <input type="password" id="password" name="password" class="form-input" placeholder="Ingresa tu contraseña" required>
+                        <?php if (isset($errors['password'])): ?>
+                            <span class="error-message"><?= htmlspecialchars($errors['password']) ?></span>
+                        <?php endif; ?>
+                    </div>
 
-        <label for="respuesta_seguridad">Respuesta:</label>
-        <input type="text" id="respuesta_seguridad" name="respuesta_seguridad" required>
+                    <div class="form-group">
+                        <label for="pregunta_seguridad" class="form-label">Pregunta de seguridad</label>
+                        <i class="fas fa-question-circle form-icon"></i>
+                        <select name="pregunta_seguridad" id="pregunta_seguridad" class="form-select" required>
+                            <option value="">Seleccione una pregunta</option>
+                            <option value="mascota">¿Cuál fue el nombre de tu primera mascota?</option>
+                            <option value="ciudad">¿En qué ciudad naciste?</option>
+                            <option value="escuela">¿Cuál fue tu primera escuela?</option>
+                        </select>
+                    </div>
 
-        <button type="submit">Registrar</button>
+                    <div class="form-group">
+                        <label for="respuesta_seguridad" class="form-label">Respuesta</label>
+                        <i class="fas fa-key form-icon"></i>
+                        <input type="text" id="respuesta_seguridad" name="respuesta_seguridad" class="form-input" placeholder="Ingresa tu respuesta" required>
+                    </div>
 
-        <?php if (isset($errors['general'])): ?>
-            <p class="error-message"><?= $errors['general']; ?></p>
-        <?php endif; ?>
-    </form>
+                    <button type="submit" class="form-button">Registrar</button>
 
-    <p>¿Ya tienes cuenta? <a href="?action=login">Iniciar sesión</a></p>
-    <p>¿Olvidaste tu contraseña? <a href="?action=recuperar-password">Recuperar contraseña</a></p>
-    <?php include __DIR__ . '/footer.php'; ?>
+                    <div class="form-links">
+                        <a href="?action=login">¿Ya tienes cuenta? Iniciar sesión</a>
+                        <br>
+                        <a href="?action=recuperar-password">¿Olvidaste tu contraseña?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; <?php echo date('Y'); ?> ZonaX. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
