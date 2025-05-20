@@ -358,7 +358,7 @@
         
         <nav>
             <div class="logo-container">
-                <a href="?action=dashboard" class="logo">
+                <a href="?action=portada" class="logo">
                     <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-RaV2p76V4QKsrXp7YmPWRwXhAJZsqH.png" alt="ZonaX Logo">
                 </a>
             </div>
@@ -387,12 +387,9 @@
                 </a>
                 
                 <a href="?action=portada" class="nav-item">
-                    <i class="fas fa-tags"></i> Categorías
+                    <i class="fas fa-home"></i> Portada
                 </a>
                 
-                <a href="?action=gestionar-pedidos" class="nav-item">
-                    <i class="fas fa-shopping-bag"></i> Pedidos
-                </a>
             </div>
             
             <div class="right-links">

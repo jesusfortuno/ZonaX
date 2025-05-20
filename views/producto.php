@@ -6,7 +6,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 // Configuración de errores
 error_reporting(E_ALL);
-ini_set('display_errors', 0); // No mostrar errores en pantalla
+ini_set('display_errors', 1); // Mostrar errores en pantalla para depuración
 ini_set('log_errors', 1);
 ini_set('error_log', __DIR__ . '/../error.log');
 ?>
@@ -104,46 +104,21 @@ ini_set('error_log', __DIR__ . '/../error.log');
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 1.5rem;
-        }
+}
 
         .producto-imagen-principal {
             width: 100%;
             height: auto;
-            max-height: 400px;
+            max-height: 500px;
             object-fit: contain;
             border-radius: 10px;
             box-shadow: var(--shadow-md);
             transition: transform 0.5s ease;
-        }
+}
 
         .producto-imagen-principal:hover {
             transform: scale(1.05);
-        }
-
-        .producto-miniaturas {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .producto-miniatura {
-            width: 70px;
-            height: 70px;
-            border-radius: 8px;
-            object-fit: cover;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: var(--transition-fast);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .producto-miniatura:hover, .producto-miniatura.active {
-            border-color: var(--color-primary);
-            transform: translateY(-3px);
-        }
+}
 
         .producto-info-container {
             flex: 1;
@@ -567,6 +542,7 @@ ini_set('error_log', __DIR__ . '/../error.log');
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
+            text-decoration: none;
         }
 
         .producto-card-btn:hover {
@@ -731,16 +707,6 @@ if (isset($_SESSION['usuario'])) {
                 <?php else: ?>
                     <img src="img/default.jpg" alt="Imagen no disponible" class="producto-imagen-principal" id="imagen-principal">
                 <?php endif; ?>
-
-                <!-- Miniaturas (simuladas) -->
-                <div class="producto-miniaturas">
-                    <?php if (!empty($producto['imagen'])): ?>
-                        <img src="<?php echo htmlspecialchars($producto['imagen']); ?>" alt="Miniatura 1" class="producto-miniatura active" onclick="cambiarImagen(this.src)">
-                        <img src="img/default-1.jpg" alt="Miniatura 2" class="producto-miniatura" onclick="cambiarImagen(this.src)">
-                        <img src="img/default-2.jpg" alt="Miniatura 3" class="producto-miniatura" onclick="cambiarImagen(this.src)">
-                        <img src="img/default-3.jpg" alt="Miniatura 4" class="producto-miniatura" onclick="cambiarImagen(this.src)">
-                    <?php endif; ?>
-                </div>
             </div>
             <div class="producto-info-container">
                 <h1 class="producto-titulo"><?php echo htmlspecialchars($producto['nombre_producto']); ?></h1>
@@ -823,52 +789,47 @@ if (isset($_SESSION['usuario'])) {
         <div class="productos-relacionados">
             <h2 class="relacionados-titulo">Productos relacionados</h2>
             <div class="relacionados-grid">
-                <?php if (!empty($productos_relacionados)): ?>
-                    <?php foreach ($productos_relacionados as $relacionado): ?>
-                        <div class="producto-card">
-                            <img src="<?= htmlspecialchars($relacionado['imagen'] ?? 'img/default.jpg'); ?>" alt="<?= htmlspecialchars($relacionado['nombre_producto']); ?>" class="producto-card-img">
-                            <div class="producto-card-content">
-                                <h3 class="producto-card-title"><?= htmlspecialchars($relacionado['nombre_producto']); ?></h3>
-                                <p class="producto-card-price"><?= number_format($relacionado['coste'], 2); ?> €</p>
-                                <a href="?action=producto&id=<?= $relacionado['id']; ?>" class="producto-card-btn">
-                                    <i class="fas fa-eye"></i> Ver producto
-                                </a>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <!-- Productos relacionados de ejemplo -->
+                <?php 
+                // Usar los productos relacionados obtenidos en el controlador
+                if (!empty($productos_relacionados)): 
+                    foreach ($productos_relacionados as $relacionado): 
+                ?>
                     <div class="producto-card">
-                        <img src="img/default.jpg" alt="Producto relacionado" class="producto-card-img">
+                        <img src="<?= htmlspecialchars($relacionado['imagen'] ?? 'img/default.jpg'); ?>" alt="<?= htmlspecialchars($relacionado['nombre_producto']); ?>" class="producto-card-img">
                         <div class="producto-card-content">
-                            <h3 class="producto-card-title">Producto relacionado 1</h3>
-                            <p class="producto-card-price">29.99 €</p>
-                            <button class="producto-card-btn">
+                            <h3 class="producto-card-title"><?= htmlspecialchars($relacionado['nombre_producto']); ?></h3>
+                            <p class="producto-card-price"><?= number_format($relacionado['coste'], 2); ?> €</p>
+                            <a href="?action=producto&id=<?= $relacionado['id']; ?>" class="producto-card-btn">
                                 <i class="fas fa-eye"></i> Ver producto
-                            </button>
+                            </a>
                         </div>
                     </div>
+                <?php 
+                    endforeach; 
+                else:
+                    // Si no hay productos relacionados, mostrar algunos productos aleatorios
+                    $productos_ejemplo = obtenerProductos();
+                    shuffle($productos_ejemplo);
+                    $productos_ejemplo = array_slice($productos_ejemplo, 0, 3);
+                    
+                    foreach ($productos_ejemplo as $ejemplo):
+                        if ($ejemplo['id'] != $producto['id']):
+                ?>
                     <div class="producto-card">
-                        <img src="img/default.jpg" alt="Producto relacionado" class="producto-card-img">
+                        <img src="<?= htmlspecialchars($ejemplo['imagen'] ?? 'img/default.jpg'); ?>" alt="<?= htmlspecialchars($ejemplo['nombre_producto']); ?>" class="producto-card-img">
                         <div class="producto-card-content">
-                            <h3 class="producto-card-title">Producto relacionado 2</h3>
-                            <p class="producto-card-price">39.99 €</p>
-                            <button class="producto-card-btn">
+                            <h3 class="producto-card-title"><?= htmlspecialchars($ejemplo['nombre_producto']); ?></h3>
+                            <p class="producto-card-price"><?= number_format($ejemplo['coste'], 2); ?> €</p>
+                            <a href="?action=producto&id=<?= $ejemplo['id']; ?>" class="producto-card-btn">
                                 <i class="fas fa-eye"></i> Ver producto
-                            </button>
+                            </a>
                         </div>
                     </div>
-                    <div class="producto-card">
-                        <img src="img/default.jpg" alt="Producto relacionado" class="producto-card-img">
-                        <div class="producto-card-content">
-                            <h3 class="producto-card-title">Producto relacionado 3</h3>
-                            <p class="producto-card-price">49.99 €</p>
-                            <button class="producto-card-btn">
-                                <i class="fas fa-eye"></i> Ver producto
-                            </button>
-                        </div>
-                    </div>
-                <?php endif; ?>
+                <?php 
+                        endif;
+                    endforeach;
+                endif; 
+                ?>
             </div>
         </div>
 
@@ -923,6 +884,13 @@ if (isset($_SESSION['usuario'])) {
                 </div>
             <?php endif; ?>
         </div>
+    <?php else: ?>
+        <div class="error-mensaje">
+            <p>No se ha encontrado el producto solicitado.</p>
+            <a href="?action=portada" class="btn-volver">
+                <i class="fas fa-arrow-left"></i> Volver a la página principal
+            </a>
+        </div>
     <?php endif; ?>
 </div>
 
@@ -944,28 +912,6 @@ function incrementarCantidad() {
         input.value = valor + 1;
     }
 }
-
-function cambiarImagen(src) {
-    document.getElementById('imagen-principal').src = src;
-    
-    // Actualizar clase activa en miniaturas
-    const miniaturas = document.querySelectorAll('.producto-miniatura');
-    miniaturas.forEach(miniatura => {
-        if (miniatura.src === src) {
-            miniatura.classList.add('active');
-        } else {
-            miniatura.classList.remove('active');
-        }
-    });
-}
-
-// Inicializar la primera miniatura como activa
-document.addEventListener('DOMContentLoaded', function() {
-    const primeraMinatura = document.querySelector('.producto-miniatura');
-    if (primeraMinatura) {
-        primeraMinatura.classList.add('active');
-    }
-});
 </script>
 
 </body>

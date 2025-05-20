@@ -951,3 +951,343 @@ Stack trace:
 [20-May-2025 19:35:33 Europe/Berlin] Número de productos obtenidos: 1
 [20-May-2025 19:35:35 Europe/Berlin] ID de producto: 4
 [20-May-2025 19:35:35 Europe/Berlin] Producto obtenido con ID: 4
+[20-May-2025 19:53:49 Europe/Berlin] Número de productos destacados obtenidos: 3
+[20-May-2025 19:53:49 Europe/Berlin] Controlador de productos destacados ejecutado
+[20-May-2025 19:53:49 Europe/Berlin] Número de productos destacados encontrados: 3
+[20-May-2025 19:56:00 Europe/Berlin] Número de productos destacados obtenidos: 3
+[20-May-2025 19:56:00 Europe/Berlin] Controlador de productos destacados ejecutado
+[20-May-2025 19:56:00 Europe/Berlin] Número de productos destacados encontrados: 3
+[20-May-2025 19:56:02 Europe/Berlin] ID de categoría: 2
+[20-May-2025 19:56:02 Europe/Berlin] Número de productos obtenidos: 1
+[20-May-2025 19:56:03 Europe/Berlin] ID de producto: 4
+[20-May-2025 19:56:03 Europe/Berlin] Producto obtenido con ID: 4
+[20-May-2025 19:57:56 Europe/Berlin] Número de productos destacados obtenidos: 3
+[20-May-2025 19:57:56 Europe/Berlin] Controlador de productos destacados ejecutado
+[20-May-2025 19:57:56 Europe/Berlin] Número de productos destacados encontrados: 3
+[20-May-2025 19:58:00 Europe/Berlin] Número de productos destacados obtenidos: 3
+[20-May-2025 19:58:00 Europe/Berlin] Controlador de productos destacados ejecutado
+[20-May-2025 19:58:00 Europe/Berlin] Número de productos destacados encontrados: 3
+[20-May-2025 19:58:01 Europe/Berlin] Número de productos destacados obtenidos: 3
+[20-May-2025 19:58:01 Europe/Berlin] Controlador de productos destacados ejecutado
+[20-May-2025 19:58:01 Europe/Berlin] Número de productos destacados encontrados: 3
+[20-May-2025 19:58:03 Europe/Berlin] Número de productos destacados obtenidos: 3
+[20-May-2025 19:58:03 Europe/Berlin] Controlador de productos destacados ejecutado
+[20-May-2025 19:58:03 Europe/Berlin] Número de productos destacados encontrados: 3
+[20-May-2025 19:59:20 Europe/Berlin] Número de productos destacados obtenidos: 3
+[20-May-2025 19:59:20 Europe/Berlin] Controlador de productos destacados ejecutado
+[20-May-2025 19:59:20 Europe/Berlin] Número de productos destacados encontrados: 3
+[20-May-2025 19:59:21 Europe/Berlin] Número de productos destacados obtenidos: 3
+[20-May-2025 19:59:21 Europe/Berlin] Controlador de productos destacados ejecutado
+[20-May-2025 19:59:21 Europe/Berlin] Número de productos destacados encontrados: 3
+[20-May-2025 19:59:22 Europe/Berlin] Número de productos destacados obtenidos: 3
+[20-May-2025 19:59:22 Europe/Berlin] Controlador de productos destacados ejecutado
+[20-May-2025 19:59:22 Europe/Berlin] Número de productos destacados encontrados: 3
+[20-May-2025 19:59:38 Europe/Berlin] Número de productos destacados obtenidos: 3
+[20-May-2025 19:59:38 Europe/Berlin] Controlador de productos destacados ejecutado
+[20-May-2025 19:59:38 Europe/Berlin] Número de productos destacados encontrados: 3
+[20-May-2025 20:00:25 Europe/Berlin] Número de productos destacados obtenidos: 3
+[20-May-2025 20:00:25 Europe/Berlin] Controlador de productos destacados ejecutado
+[20-May-2025 20:00:25 Europe/Berlin] Número de productos destacados encontrados: 3
+[20-May-2025 20:00:34 Europe/Berlin] Número de productos destacados obtenidos: 3
+[20-May-2025 20:00:34 Europe/Berlin] Controlador de productos destacados ejecutado
+[20-May-2025 20:00:34 Europe/Berlin] Número de productos destacados encontrados: 3
+[20-May-2025 20:00:35 Europe/Berlin] Número de productos destacados obtenidos: 3
+[20-May-2025 20:00:35 Europe/Berlin] Controlador de productos destacados ejecutado
+[20-May-2025 20:00:35 Europe/Berlin] Número de productos destacados encontrados: 3
+[20-May-2025 20:01:13 Europe/Berlin] Número de productos destacados obtenidos: 3
+[20-May-2025 20:01:13 Europe/Berlin] Controlador de productos destacados ejecutado
+[20-May-2025 20:01:13 Europe/Berlin] Número de productos destacados encontrados: 3
+[20-May-2025 20:01:46 Europe/Berlin] ID de producto: 1
+[20-May-2025 20:01:46 Europe/Berlin] Producto obtenido con ID: 1
+[20-May-2025 20:02:39 Europe/Berlin] ID de categoría: 1
+[20-May-2025 20:02:39 Europe/Berlin] Número de productos obtenidos: 1
+[20-May-2025 20:02:41 Europe/Berlin] ID de producto: 1
+[20-May-2025 20:02:41 Europe/Berlin] Producto obtenido con ID: 1
+[20-May-2025 20:02:47 Europe/Berlin] Añadiendo producto al carrito: ID=1, Nombre=Morgan, Precio=49.99, Cantidad=1
+[20-May-2025 20:02:47 Europe/Berlin] Nuevo producto añadido al carrito
+[20-May-2025 20:02:53 Europe/Berlin] ID de producto: 4
+[20-May-2025 20:02:53 Europe/Berlin] Producto obtenido con ID: 4
+[20-May-2025 20:02:55 Europe/Berlin] Número de productos destacados obtenidos: 3
+[20-May-2025 20:02:55 Europe/Berlin] Controlador de productos destacados ejecutado
+[20-May-2025 20:02:55 Europe/Berlin] Número de productos destacados encontrados: 3
+[20-May-2025 20:03:03 Europe/Berlin] ID de producto: 1
+[20-May-2025 20:03:03 Europe/Berlin] Producto obtenido con ID: 1
+[20-May-2025 20:04:02 Europe/Berlin] ID de producto: 1
+[20-May-2025 20:04:02 Europe/Berlin] Producto obtenido con ID: 1
+[20-May-2025 20:07:04 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:06 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:06 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:07 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:07 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:07 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:07 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:08 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:08 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:08 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:08 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:08 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:08 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:08 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:08 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:08 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:08 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:08 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:08 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:09 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:09 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:09 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:09 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:09 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:09 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:09 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:10 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:10 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:10 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:10 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:10 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:10 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:10 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:10 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:10 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:10 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:10 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:11 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:11 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:11 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:11 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:11 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:11 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:11 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:11 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:11 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:11 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:11 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:11 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:12 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:12 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:12 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:14 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:14 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:21 Europe/Berlin] Número de productos destacados obtenidos: 3
+[20-May-2025 20:07:21 Europe/Berlin] Controlador de productos destacados ejecutado
+[20-May-2025 20:07:21 Europe/Berlin] Número de productos destacados encontrados: 3
+[20-May-2025 20:07:25 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:28 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:28 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:33 Europe/Berlin] PHP Warning:  require_once(model/producto.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:07:33 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'model/producto.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ZonaX\controller\producto_controller.php:3
+Stack trace:
+#0 C:\xampp\htdocs\ZonaX\resource_producto.php(24): require()
+#1 C:\xampp\htdocs\ZonaX\index.php(23): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ZonaX\controller\producto_controller.php on line 3
+[20-May-2025 20:12:53 Europe/Berlin] ID de producto: 4
+[20-May-2025 20:12:53 Europe/Berlin] Producto obtenido con ID: 4
+[20-May-2025 20:12:53 Europe/Berlin] Productos relacionados obtenidos: 3
+[20-May-2025 20:12:57 Europe/Berlin] Número de productos destacados obtenidos: 3
+[20-May-2025 20:12:57 Europe/Berlin] Controlador de productos destacados ejecutado
+[20-May-2025 20:12:57 Europe/Berlin] Número de productos destacados encontrados: 3
+[20-May-2025 20:13:02 Europe/Berlin] ID de producto: 7
+[20-May-2025 20:13:02 Europe/Berlin] Producto obtenido con ID: 7
+[20-May-2025 20:13:02 Europe/Berlin] Productos relacionados obtenidos: 3
+[20-May-2025 20:13:28 Europe/Berlin] Número de productos destacados obtenidos: 3
+[20-May-2025 20:13:28 Europe/Berlin] Controlador de productos destacados ejecutado
+[20-May-2025 20:13:28 Europe/Berlin] Número de productos destacados encontrados: 3
+[20-May-2025 20:13:30 Europe/Berlin] Número de productos destacados obtenidos: 3
+[20-May-2025 20:13:30 Europe/Berlin] Controlador de productos destacados ejecutado
+[20-May-2025 20:13:30 Europe/Berlin] Número de productos destacados encontrados: 3
