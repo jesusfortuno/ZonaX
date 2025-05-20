@@ -115,6 +115,11 @@
            letter-spacing: 1px;
        }
        
+       .logo img {
+           height: 40px;
+           width: auto;
+       }
+       
        .nav-links {
            display: flex;
            align-items: center;
@@ -276,8 +281,8 @@
        }
        
        @media (max-width: 576px) {
-           .logo {
-               font-size: 1.5rem;
+           .logo img {
+               height: 35px;
            }
            
            .right-links {
@@ -325,7 +330,9 @@
        
        <nav>
            <div class="logo-container">
-               <a href="?action=portada" class="logo">Zona</a>
+               <a href="?action=portada" class="logo">
+                   <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-RaV2p76V4QKsrXp7YmPWRwXhAJZsqH.png" alt="ZonaX Logo">
+               </a>
            </div>
            
            <button class="mobile-menu-btn" id="mobile-menu-btn">
@@ -333,9 +340,6 @@
            </button>
            
            <div class="nav-links" id="nav-links">
-               <button class="close-menu" id="close-menu">
-                   <i class="fas fa-times"></i>
-               </button>
                
                <a href="?action=portada" class="nav-item">Inicio</a>
                

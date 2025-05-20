@@ -79,7 +79,7 @@
         }
         
         .admin-badge {
-            background-color: var(--color-accent);
+            background-color: #fbbf24;
             color: var(--color-gray-800);
             padding: 0.25rem 0.75rem;
             border-radius: 50px;
@@ -87,6 +87,19 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+        }
+        
+        .top-bar-right a {
+            color: var(--color-white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition-fast);
+        }
+        
+        .top-bar-right a:hover {
+            color: var(--color-accent);
         }
         
         nav {
@@ -113,9 +126,9 @@
             letter-spacing: 1px;
         }
         
-        .logo span {
-            color: var(--color-accent);
-            margin-left: 2px;
+        .logo img {
+            height: 40px;
+            width: auto;
         }
         
         .nav-links {
@@ -296,8 +309,8 @@
         }
         
         @media (max-width: 576px) {
-            .logo {
-                font-size: 1.5rem;
+            .logo img {
+                height: 35px;
             }
             
             .right-links {
@@ -345,7 +358,9 @@
         
         <nav>
             <div class="logo-container">
-                <a href="?action=dashboard" class="logo">Zona<span>X</span></a>
+                <a href="?action=dashboard" class="logo">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-RaV2p76V4QKsrXp7YmPWRwXhAJZsqH.png" alt="ZonaX Logo">
+                </a>
             </div>
             
             <button class="mobile-menu-btn" id="mobile-menu-btn">
@@ -353,13 +368,7 @@
             </button>
             
             <div class="nav-links" id="nav-links">
-                <button class="close-menu" id="close-menu">
-                    <i class="fas fa-times"></i>
-                </button>
-                
-                <a href="?action=dashboard" class="nav-item">
-                    <i class="fas fa-tachometer-alt"></i> Dashboard
-                </a>
+                <a href="?action=dashboard" class="nav-item">Dashboard</a>
                 
                 <?php if (isset($_SESSION['usuario'])): ?>
                     <span class="admin-text">

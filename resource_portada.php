@@ -89,7 +89,7 @@ if (isset($_SESSION['usuario'])) {
 
         .login-image {
             flex: 1;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('img/login-bg.jpg');
+            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-I6w406GYD47n6QJEY1xpTgP4r3qGw1.png');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -105,14 +105,14 @@ if (isset($_SESSION['usuario'])) {
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 5px rgba(0, 0, 0, 0.5);
         }
 
         .login-image p {
             font-size: 1.1rem;
             max-width: 400px;
             margin-bottom: 2rem;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 5px rgba(0, 0, 0, 0.5);
         }
 
         .login-form-container {
@@ -126,17 +126,14 @@ if (isset($_SESSION['usuario'])) {
         .login-logo {
             text-align: center;
             margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .login-logo h2 {
-            color: var(--color-gray-800);
-            font-weight: 700;
-            font-size: 2rem;
-            letter-spacing: 1px;
-        }
-
-        .login-logo span {
-            color: var(--color-primary);
+        .login-logo img {
+            height: 50px;
+            width: auto;
         }
 
         .login-title {
@@ -279,7 +276,7 @@ if (isset($_SESSION['usuario'])) {
             
             <div class="login-form-container">
                 <div class="login-logo">
-                    <h2>Zona<span>X</span></h2>
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-RaV2p76V4QKsrXp7YmPWRwXhAJZsqH.png" alt="Logo Zona">
                 </div>
                 
                 <h1 class="login-title">Iniciar Sesión</h1>
@@ -314,10 +311,6 @@ if (isset($_SESSION['usuario'])) {
             </div>
         </div>
     </div>
-
-    <footer class="footer">
-        <p>&copy; <?php echo date('Y'); ?> ZonaX. Todos los derechos reservados.</p>
-    </footer>
 </body>
 </html>
 <?php

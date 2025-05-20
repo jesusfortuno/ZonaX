@@ -70,7 +70,7 @@
 
         .login-image {
             flex: 1;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('img/login-bg.jpg');
+            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-I6w406GYD47n6QJEY1xpTgP4r3qGw1.png');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -86,14 +86,14 @@
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 5px rgba(0, 0, 0, 0.5);
         }
 
         .login-image p {
             font-size: 1.1rem;
             max-width: 400px;
             margin-bottom: 2rem;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 5px rgba(0, 0, 0, 0.5);
         }
 
         .login-form-container {
@@ -107,6 +107,11 @@
         .login-logo {
             text-align: center;
             margin-bottom: 2rem;
+        }
+
+        .login-logo img {
+            height: 50px;
+            width: auto;
         }
 
         .login-logo h2 {
@@ -247,14 +252,6 @@
             gap: 0.5rem;
         }
 
-        .footer {
-            background: var(--gradient-main);
-            color: var(--color-white);
-            padding: 1.2rem;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
         @media (max-width: 992px) {
             .login-wrapper {
                 flex-direction: column;
@@ -307,8 +304,8 @@
             
             <div class="login-form-container">
                 <div class="login-logo">
-                    <h2>Zona<span>X</span></h2>
-                </div>
+    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-RaV2p76V4QKsrXp7YmPWRwXhAJZsqH.png" alt="ZonaX Logo">
+</div>
                 
                 <h1 class="login-title">Registro</h1>
                 
@@ -372,9 +369,5 @@
             </div>
         </div>
     </div>
-
-    <footer class="footer">
-        <p>&copy; <?php echo date('Y'); ?> ZonaX. Todos los derechos reservados.</p>
-    </footer>
 </body>
 </html>
