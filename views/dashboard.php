@@ -362,11 +362,6 @@
                     <p class="action-description">Administrar cuentas de usuarios y permisos</p>
                 </a>
                 
-                <a href="?action=gestionar-categorias" class="action-card">
-                    <i class="fas fa-tags action-icon"></i>
-                    <h3 class="action-title">Gestionar Categorías</h3>
-                    <p class="action-description">Organizar productos por categorías</p>
-                </a>
             </div>
         </div>
     </div>

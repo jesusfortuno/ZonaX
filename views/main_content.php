@@ -178,11 +178,13 @@
     </div>
 </div>
 
-<div class="cta-section">
-    <div class="cta-content">
-        <h2 class="cta-title">¿Listo para explorar?</h2>
-        <p class="cta-text">Descubre nuestra colección completa de productos</p>
-        <a href="?action=llistar-productes" class="cta-button">Ver Todos los Productos</a>
+<div class="white-container">
+    <div class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">¿Listo para explorar?</h2>
+            <p class="cta-text">Descubre nuestra colección completa de productos</p>
+            <a href="?action=llistar-productes" class="cta-button">Ver Todos los Productos</a>
+        </div>
     </div>
 </div>
 
@@ -465,6 +467,8 @@
 .featured-section {
     padding: 5rem 2rem;
     background-color: var(--color-white);
+    margin-bottom: 0;
+    padding-bottom: 5rem;
 }
 
 .featured-slider {
@@ -588,24 +592,42 @@
 }
 
 /* CTA Section */
+.white-container {
+    width: 100%;
+    background-color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
 .cta-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img/cta-bg.jpg');
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+    text-align: center;
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-AkgWxqgG19hgpZ8KpxCNY04wp9wVgo.png');
     background-size: cover;
     background-position: center;
     color: var(--color-white);
-    padding: 6rem 2rem;
-    text-align: center;
+    overflow: hidden;
 }
 
 .cta-content {
     max-width: 800px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
 }
 
 .cta-title {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .cta-text {
@@ -614,6 +636,7 @@
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .cta-button {
@@ -627,12 +650,14 @@
     transition: var(--transition-fast);
     text-transform: uppercase;
     letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .cta-button:hover {
     background: var(--color-primary-dark);
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+    box-shadow: 0 6px 15px rgba(255, 107, 107, 0.4);
 }
 
 /* Responsive Styles */
@@ -704,6 +729,24 @@
     .cta-title {
         font-size: 2rem;
     }
+}
+
+/* Eliminar espacios entre secciones */
+.featured-section {
+    margin-bottom: 0;
+    padding-bottom: 5rem;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: var(--color-white);
+}
+
+.cta-section + div {
+    margin-top: 0;
+    padding-top: 0;
 }
 </style>
 

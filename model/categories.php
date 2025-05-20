@@ -91,6 +91,30 @@ function getCategoryById($conection, $id_categoria) {
 }
 
 /**
+ * Cuenta el número total de categorías en la base de datos
+ * @param PDO $conection Conexión a la base de datos
+ * @return int Número total de categorías
+ */
+function contarCategorias($conection) {
+    try {
+        $consulta = $conection->prepare("SELECT COUNT(id_categoria) as total FROM CATEGORIA");
+        $consulta->execute();
+        $resultado = $consulta->fetch(PDO::FETCH_ASSOC);
+        
+        if ($resultado && isset($resultado['total'])) {
+            return (int)$resultado['total'];
+        }
+        
+        // Si no hay categorías en la base de datos, contar las categorías de ejemplo
+        $categorias = getAllCategories($conection);
+        return count($categorias);
+    } catch(PDOException $e) {
+        error_log("Error en contarCategorias: " . $e->getMessage());
+        return 0;
+    }
+}
+
+/**
  * Función auxiliar para obtener categorías (para compatibilidad)
  * @return array Arreglo con todas las categorías
  */

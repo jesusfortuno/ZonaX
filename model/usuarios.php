@@ -125,15 +125,8 @@ function contarProductos($connection) {
    }
 }
 
-function contarCategorias($connection) {
-   try {
-       $consulta = $connection->query("SELECT COUNT(*) FROM categorias");
-       return $consulta->fetchColumn();
-   } catch (PDOException $e) {
-       error_log("Error contando categorías: " . $e->getMessage());
-       return 0;
-   }
-}
+// La función contarCategorias() ha sido eliminada de este archivo
+// Ahora se encuentra en model/categories.php
 
 function actualizarPerfilUsuario($connection, $id, $nombre, $email) {
    try {
